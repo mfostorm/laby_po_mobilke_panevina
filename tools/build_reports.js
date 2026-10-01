@@ -8,6 +8,7 @@
 //   **жирный**, *курсив*, `код`
 // Директивы:
 //   <!-- target: путь/к/Отчёт.docx -->   — куда сохранить (от корня репозитория)
+//   <!-- src: путь/к/папке/работы -->    — откуда брать @code (по умолчанию папка target)
 //   @code путь [N-M]                     — вставить файл (путь от папки отчёта), опционально строки N..M
 //   @out имя                             — вставить вывод программы из tools/out/имя.txt
 //   @img файл.png | подпись              — рисунок из tools/img (Logcat), с подписью «Рисунок N — …»
@@ -194,7 +195,9 @@ function build(mdFile) {
   const src = fs.readFileSync(mdFile, "utf8");
   const target = (src.match(/<!--\s*target:\s*(.+?)\s*-->/) || [])[1];
   if (!target) throw new Error("no target in " + mdFile);
-  const reportDir = path.dirname(path.join(ROOT, target));
+  // Пути в @code считаются от папки работы (src), а отчёт кладётся в target
+  const srcDir = (src.match(/<!--\s*src:\s*(.+?)\s*-->/) || [])[1];
+  const reportDir = srcDir ? path.join(ROOT, srcDir) : path.dirname(path.join(ROOT, target));
   const lines = src.split("\n");
   const out = [];
   let para = [];
