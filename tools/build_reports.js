@@ -10,11 +10,13 @@
 //   <!-- target: путь/к/Отчёт.docx -->   — куда сохранить (от корня репозитория)
 //   @code путь [N-M]                     — вставить файл (путь от папки отчёта), опционально строки N..M
 //   @out имя                             — вставить вывод программы из tools/out/имя.txt
+//   @img файл.png | подпись              — рисунок из tools/img (Logcat), с подписью «Рисунок N — …»
+//   @imgrow N[:см] | файл1 | подпись1 | … — снимки экрана в ряд по N штук (ширина каждого не больше см)
 const fs = require("fs");
 const path = require("path");
 const {
   Document, Packer, Paragraph, TextRun, AlignmentType, LevelFormat, Table, TableRow,
-  TableCell, WidthType, BorderStyle, ShadingType, Footer, PageNumber, HeadingLevel,
+  TableCell, WidthType, BorderStyle, ShadingType, Footer, PageNumber, HeadingLevel, ImageRun,
 } = require("docx");
 
 const ROOT = path.resolve(__dirname, "..");
@@ -98,6 +100,64 @@ function extractRange(lines, from, to, file) {
   return part.map((l) => l.slice(indent));
 }
 
+// ---------- Рисунки ----------
+const IMG_DIR = path.join(__dirname, "img");
+const CM = 96 / 2.54;   // docx-js принимает размеры картинок в пикселях при 96 dpi
+
+function pngSize(file) {
+  const b = fs.readFileSync(file);
+  return { w: b.readUInt32BE(16), h: b.readUInt32BE(20), data: b };
+}
+
+function imageRun(file, widthCm) {
+  const { w, h, data } = pngSize(path.join(IMG_DIR, file));
+  const width = widthCm * CM;
+  return new ImageRun({ type: "png", data, transformation: { width: Math.round(width), height: Math.round(width * h / w) } });
+}
+
+function figCaption(n, text) {
+  return new Paragraph({
+    alignment: AlignmentType.CENTER,
+    spacing: { before: 60, after: 200 },
+    children: inlineRuns(`Рисунок ${n} — ${text}`, { size: BODY - 4 }),
+  });
+}
+
+// Logcat: масштаб одинаковый для всех картинок (чтобы шрифт был одного размера), но не шире страницы
+function logcatFigure(file, n, text) {
+  const { w } = pngSize(path.join(IMG_DIR, file));
+  const widthCm = Math.min(16.2, w * 0.0135);
+  return [
+    new Paragraph({ alignment: AlignmentType.CENTER, keepNext: true, spacing: { before: 120, line: 240, lineRule: "auto" }, children: [imageRun(file, widthCm)] }),
+    figCaption(n, text),
+  ];
+}
+
+// Ряд снимков экрана: таблица без рамок, под каждым снимком своя подпись
+function screenRow(items, perRow, nextNum, maxCm) {
+  const colW = Math.floor(TEXT_WIDTH / perRow);
+  const none = { style: BorderStyle.NONE, size: 0, color: "FFFFFF" };
+  const rows = [];
+  for (let i = 0; i < items.length; i += perRow) {
+    const chunk = items.slice(i, i + perRow);
+    while (chunk.length < perRow) chunk.push(null);
+    rows.push(new TableRow({
+      cantSplit: true,
+      children: chunk.map((it) => new TableCell({
+        width: { size: colW, type: WidthType.DXA },
+        borders: { top: none, left: none, bottom: none, right: none },
+        margins: { left: 60, right: 60 },
+        children: it ? [
+          new Paragraph({ alignment: AlignmentType.CENTER, spacing: { line: 240, lineRule: "auto" }, children: [imageRun(it.file, Math.min(colW / 567 - 0.4, maxCm || 99))] }),
+          new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 60, after: 160, line: 240 },
+            children: inlineRuns(`Рисунок ${nextNum()} — ${it.caption}`, { size: BODY - 6 }) }),
+        ] : [new Paragraph({ children: [] })],
+      })),
+    }));
+  }
+  return new Table({ width: { size: colW * perRow, type: WidthType.DXA }, columnWidths: Array(perRow).fill(colW), rows });
+}
+
 function caption(text) {
   return new Paragraph({
     keepNext: true,
@@ -139,6 +199,7 @@ function build(mdFile) {
   const out = [];
   let para = [];
   let listCounter = 0;
+  let figNum = 0;
   let prevList = null;
 
   const flush = () => {
@@ -223,6 +284,22 @@ function build(mdFile) {
       }));
       continue;
     }
+    if (t.startsWith("@img ")) {
+      flush();
+      const [file, text] = t.slice(5).split("|").map((x) => x.trim());
+      out.push(...logcatFigure(file, ++figNum, text));
+      continue;
+    }
+    if (t.startsWith("@imgrow ")) {
+      flush();
+      const parts = t.slice(8).split("|").map((x) => x.trim());
+      const [perRow, maxCm] = parts[0].split(":").map(Number);   // «2:6» — 2 в ряд, не шире 6 см
+      const items = [];
+      for (let k = 1; k < parts.length; k += 2) items.push({ file: parts[k], caption: parts[k + 1] });
+      out.push(screenRow(items, perRow, () => ++figNum, maxCm));
+      out.push(new Paragraph({ spacing: { after: 80 }, children: [] }));
+      continue;
+    }
     if (t.startsWith("@caption ")) {
       flush();
       out.push(caption(t.slice(9)));
@@ -246,7 +323,7 @@ function build(mdFile) {
 
   const doc = new Document({
     styles: {
-      default: { document: { run: { font: FONT, size: BODY }, paragraph: { spacing: { line: 276 } } } },
+      default: { document: { run: { font: FONT, size: BODY }, paragraph: { spacing: { line: 276, lineRule: "auto" } } } },
       paragraphStyles: [
         { id: "Heading1", name: "Heading 1", basedOn: "Normal", next: "Normal", quickFormat: true,
           run: { size: 32, bold: true, font: FONT, color: "000000" },
