@@ -1,0 +1,9 @@
+info: Weekly temperatures:
+info: Day 0 = 22
+info: Day 1 = 24
+info: Day 2 = 21
+info: Day 3 = 23
+info: Day 4 = 25
+info: Day 5 = 22
+info: Day 6 = 24
+info: Average temperature = 23.0

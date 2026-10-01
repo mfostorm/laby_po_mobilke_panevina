@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Верх: три колонки виджетов, низ: WebView -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Левая колонка: RadioGroup, EditText, Button, TextClock -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radioButtonLondon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="London" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonBeijing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Beijing" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonNewYork"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New York" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Введите текст"
+                android:inputType="text" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Capture" />
+
+            <TextClock
+                android:id="@+id/textClock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:format12Hour="hh:mm:ss a"
+                android:format24Hour="HH:mm:ss" />
+        </LinearLayout>
+
+        <!-- Средняя колонка: три CheckBox и ImageView -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/checkBoxTransparency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Transparency" />
+
+            <CheckBox
+                android:id="@+id/checkBoxTint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tint" />
+
+            <CheckBox
+                android:id="@+id/checkBoxReSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Re-size" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="24dp"
+                android:src="@android:drawable/sym_def_app_icon" />
+        </LinearLayout>
+
+        <!-- Правая колонка: Switch и TextView -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:enabled="true"
+                android:text="Switch" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                android:textSize="24sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

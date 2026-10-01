@@ -1,0 +1,12 @@
+Info: Vehicle constructor: Sedan
+Info: Car constructor
+Info: Vehicle constructor: Boeing 737
+Info: Airplane constructor
+Car Speed: Max: 180
+Plane Speed: Max: 900
+Car Speed: Current: 50
+Plane Speed: Current: 300
+Info: Car is driving on the road
+Info: Airplane is flying in the sky
+Car Speed: After brake: 0
+Total Vehicles: 2

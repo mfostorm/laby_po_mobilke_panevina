@@ -1,0 +1,10 @@
+Info: Employee constructor: Alice
+Info: Manager constructor
+Info: Employee constructor: Bob
+Info: Developer constructor
+Salary: Alice: $60000
+Salary: Bob: $45000
+Info: Manager is managing the team
+Info: Developer is writing code
+Total Employees: 2
+First Employee: Alice
