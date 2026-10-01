@@ -1,0 +1,46 @@
+--------- beginning of main
+10-01 12:19:56.855 I/libprocessgroup(15346): Created cgroup /sys/fs/cgroup/apps/uid_10233/pid_15346
+10-01 12:19:56.868 I/Zygote  (15346): Process 15346 created for com.example.methods
+10-01 12:19:56.869 I/example.methods(15346): Late-enabling -Xcheck:jni
+10-01 12:19:56.878 I/example.methods(15346): Using generational CollectorTypeCMC GC.
+10-01 12:19:56.878 W/example.methods(15346): Unexpected CPU variant for x86: x86_64.
+10-01 12:19:56.878 W/example.methods(15346): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+10-01 12:19:56.887 D/nativeloader(15346): Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+10-01 12:19:56.918 D/CompatChangeReporter(15346): Compat change id reported: 242716250; UID 10233; state: ENABLED
+10-01 12:19:57.011 D/nativeloader(15346): Configuring clns-9 for other apk /data/app/~~058JRZfr5veHEyIbF0LuUA==/com.example.methods-gqDUrc2HCeSnWYT5vp_KZw==/base.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~058JRZfr5veHEyIbF0LuUA==/com.example.methods-gqDUrc2HCeSnWYT5vp_KZw==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.example.methods
+--------- beginning of system
+10-01 12:19:57.046 D/ActivityThread(15346): Set OS env TMPDIR to /data/user/0/com.example.methods/cache
+10-01 12:19:57.048 V/GraphicsEnvironment(15346): Currently set values for:
+10-01 12:19:57.048 V/GraphicsEnvironment(15346):   angle_gl_driver_selection_pkgs=[]
+10-01 12:19:57.048 V/GraphicsEnvironment(15346):   angle_gl_driver_selection_values=[]
+10-01 12:19:57.048 V/GraphicsEnvironment(15346): com.example.methods is not listed in per-application setting
+10-01 12:19:57.048 V/GraphicsEnvironment(15346): No special selections for ANGLE, returning default driver choice
+10-01 12:19:57.049 V/GraphicsEnvironment(15346): Neither updatable production driver nor prerelease driver is supported.
+10-01 12:19:57.103 I/DisplayManager(15346): Choreographer implicitly registered for the refresh rate.
+10-01 12:19:57.110 D/example.methods(15346): Initializing ProtoLog
+10-01 12:19:57.110 D/ProtoLog(15346): Initializing ProtoLog DataSource
+10-01 12:19:57.150 I/GFXSTREAM(15346): [eglDisplay.cpp(297)] Opening libGLESv1_CM_emulation.so
+10-01 12:19:57.151 I/GFXSTREAM(15346): [eglDisplay.cpp(297)] Opening libGLESv2_emulation.so
+10-01 12:19:57.157 W/libc    (15346): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:19:57.165 W/HWUI    (15346): Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+10-01 12:19:57.165 W/HWUI    (15346): Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-01 12:19:57.209 D/AppCompatDelegate(15346): Checking for metadata for AppLocalesMetadataHolderService : Service not found
+10-01 12:19:57.308 I/example.methods(15346): hiddenapi: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/appcompat/widget/ViewUtils; (domain=app, TargetSdkVersion=34) using reflection: allowed
+10-01 12:19:57.324 I/Info:   (15346): 2 в степени 10 = 1024
+10-01 12:19:57.324 I/Info:   (15346): 3 в степени 4 = 81
+10-01 12:19:57.324 I/Info:   (15346): 7 в степени 0 = 1
+10-01 12:19:57.324 I/Info:   (15346): Привет, Анна!
+10-01 12:19:57.324 I/Info:   (15346): Товар: Смартфон
+10-01 12:19:57.324 I/Info:   (15346): Товар: Смартфон, Цена: 30000 руб.
+10-01 12:19:57.324 I/Info:   (15346): Товар: Смартфон, Цена: 30000 руб., В наличии: да
+10-01 12:19:57.417 W/HWUI    (15346): Unknown dataspace 0
+10-01 12:19:57.426 W/libc    (15346): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:19:57.433 D/VRI[MainActivity](15346): WindowInsets changed: 1080x2400 statusBars:[0,128,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,160,0,84] 
+10-01 12:19:57.434 D/WindowOnBackDispatcher(15346): setTopOnBackInvokedCallback (unwrapped): android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:19:57.436 D/WindowOnBackDispatcher(15346): setOnBackInvokedCallbackInfo: android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:19:57.436 I/HWUI    (15346): Using FreeType backend (prop=Auto)
+10-01 12:19:57.441 I/Surface (15346): Creating surface for consumer unnamed-15346-0 with slotExpansion=1 for 64 slots
+10-01 12:19:57.442 I/Surface (15346): Creating surface for consumer VRI[MainActivity]#0(BLAST Consumer)0 with slotExpansion=1 for 64 slots
+10-01 12:19:57.592 D/InsetsController(15346): hide(ime())
+10-01 12:19:57.592 I/ImeTracker(15346): com.example.methods:529d3c9a: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+10-01 12:19:57.968 I/example.methods(15346): Compiler allocated 4522KB to compile void android.view.ViewRootImpl.performTraversals(long)

@@ -1,0 +1,5 @@
+com.example.javameetui.ScreenshotTest:.
+
+Time: 6.111
+
+OK (1 test)

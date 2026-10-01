@@ -1,0 +1,45 @@
+--------- beginning of main
+10-01 12:20:08.183 I/libprocessgroup(15590): Created cgroup /sys/fs/cgroup/apps/uid_10240/pid_15590
+10-01 12:20:08.196 I/Zygote  (15590): Process 15590 created for com.example.petshelter
+10-01 12:20:08.196 I/mple.petshelter(15590): Late-enabling -Xcheck:jni
+10-01 12:20:08.205 I/mple.petshelter(15590): Using generational CollectorTypeCMC GC.
+10-01 12:20:08.205 W/mple.petshelter(15590): Unexpected CPU variant for x86: x86_64.
+10-01 12:20:08.205 W/mple.petshelter(15590): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+10-01 12:20:08.223 D/nativeloader(15590): Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+10-01 12:20:08.307 D/CompatChangeReporter(15590): Compat change id reported: 242716250; UID 10240; state: ENABLED
+10-01 12:20:08.389 D/nativeloader(15590): Configuring clns-9 for other apk /data/app/~~Q8p_rOjhmDt1tIoQQMSMKQ==/com.example.petshelter-PwCXtUv7WadeehvxAl4Etw==/base.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~Q8p_rOjhmDt1tIoQQMSMKQ==/com.example.petshelter-PwCXtUv7WadeehvxAl4Etw==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.example.petshelter
+--------- beginning of system
+10-01 12:20:08.401 D/ActivityThread(15590): Set OS env TMPDIR to /data/user/0/com.example.petshelter/cache
+10-01 12:20:08.403 V/GraphicsEnvironment(15590): Currently set values for:
+10-01 12:20:08.403 V/GraphicsEnvironment(15590):   angle_gl_driver_selection_pkgs=[]
+10-01 12:20:08.403 V/GraphicsEnvironment(15590):   angle_gl_driver_selection_values=[]
+10-01 12:20:08.403 V/GraphicsEnvironment(15590): com.example.petshelter is not listed in per-application setting
+10-01 12:20:08.404 V/GraphicsEnvironment(15590): No special selections for ANGLE, returning default driver choice
+10-01 12:20:08.412 V/GraphicsEnvironment(15590): Neither updatable production driver nor prerelease driver is supported.
+10-01 12:20:08.460 I/DisplayManager(15590): Choreographer implicitly registered for the refresh rate.
+10-01 12:20:08.465 D/mple.petshelter(15590): Initializing ProtoLog
+10-01 12:20:08.465 D/ProtoLog(15590): Initializing ProtoLog DataSource
+10-01 12:20:08.520 I/GFXSTREAM(15590): [eglDisplay.cpp(297)] Opening libGLESv1_CM_emulation.so
+10-01 12:20:08.522 I/GFXSTREAM(15590): [eglDisplay.cpp(297)] Opening libGLESv2_emulation.so
+10-01 12:20:08.523 W/libc    (15590): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:20:08.528 W/HWUI    (15590): Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+10-01 12:20:08.528 W/HWUI    (15590): Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-01 12:20:08.541 D/AppCompatDelegate(15590): Checking for metadata for AppLocalesMetadataHolderService : Service not found
+10-01 12:20:08.661 I/mple.petshelter(15590): hiddenapi: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/appcompat/widget/ViewUtils; (domain=app, TargetSdkVersion=34) using reflection: allowed
+10-01 12:20:08.678 I/Info:   (15590): Возраст Барсика: 24 мес.
+10-01 12:20:08.678 I/Info:   (15590): Возраст Рекса: 36 мес.
+10-01 12:20:08.678 I/Info:   (15590): Возраст Кеши: 12 мес.
+10-01 12:20:08.678 I/Info:   (15590): Кот издаёт звук
+10-01 12:20:08.678 I/Info:   (15590): Собака издаёт звук
+10-01 12:20:08.678 I/Info:   (15590): Попугай издаёт звук
+10-01 12:20:08.741 W/HWUI    (15590): Unknown dataspace 0
+10-01 12:20:08.755 W/libc    (15590): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:20:08.757 D/VRI[MainActivity](15590): WindowInsets changed: 1080x2400 statusBars:[0,128,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,160,0,84] 
+10-01 12:20:08.758 D/WindowOnBackDispatcher(15590): setTopOnBackInvokedCallback (unwrapped): android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:20:08.762 D/WindowOnBackDispatcher(15590): setOnBackInvokedCallbackInfo: android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:20:08.763 I/HWUI    (15590): Using FreeType backend (prop=Auto)
+10-01 12:20:08.769 I/Surface (15590): Creating surface for consumer unnamed-15590-0 with slotExpansion=1 for 64 slots
+10-01 12:20:08.770 I/Surface (15590): Creating surface for consumer VRI[MainActivity]#0(BLAST Consumer)0 with slotExpansion=1 for 64 slots
+10-01 12:20:08.990 D/InsetsController(15590): hide(ime())
+10-01 12:20:08.991 I/ImeTracker(15590): com.example.petshelter:960e5dab: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+10-01 12:20:09.450 I/mple.petshelter(15590): Compiler allocated 4522KB to compile void android.view.ViewRootImpl.performTraversals(long)

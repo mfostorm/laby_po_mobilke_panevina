@@ -1,0 +1,40 @@
+--------- beginning of main
+10-01 12:19:34.093 I/libprocessgroup(14810): Created cgroup /sys/fs/cgroup/apps/uid_10234/pid_14810
+10-01 12:19:34.103 I/Zygote  (14810): Process 14810 created for com.example.banksystem
+10-01 12:19:34.104 I/mple.banksystem(14810): Late-enabling -Xcheck:jni
+10-01 12:19:34.114 I/mple.banksystem(14810): Using generational CollectorTypeCMC GC.
+10-01 12:19:34.114 W/mple.banksystem(14810): Unexpected CPU variant for x86: x86_64.
+10-01 12:19:34.114 W/mple.banksystem(14810): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+10-01 12:19:34.124 D/nativeloader(14810): Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+10-01 12:19:34.215 D/CompatChangeReporter(14810): Compat change id reported: 242716250; UID 10234; state: ENABLED
+10-01 12:19:34.314 D/nativeloader(14810): Configuring clns-9 for other apk /data/app/~~NdTjNdLDz9msB5jr_bKVVA==/com.example.banksystem-TjVapZjUttEZRzmyCsWt6Q==/base.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~NdTjNdLDz9msB5jr_bKVVA==/com.example.banksystem-TjVapZjUttEZRzmyCsWt6Q==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.example.banksystem
+--------- beginning of system
+10-01 12:19:34.326 D/ActivityThread(14810): Set OS env TMPDIR to /data/user/0/com.example.banksystem/cache
+10-01 12:19:34.327 V/GraphicsEnvironment(14810): Currently set values for:
+10-01 12:19:34.327 V/GraphicsEnvironment(14810):   angle_gl_driver_selection_pkgs=[]
+10-01 12:19:34.327 V/GraphicsEnvironment(14810):   angle_gl_driver_selection_values=[]
+10-01 12:19:34.327 V/GraphicsEnvironment(14810): com.example.banksystem is not listed in per-application setting
+10-01 12:19:34.327 V/GraphicsEnvironment(14810): No special selections for ANGLE, returning default driver choice
+10-01 12:19:34.329 V/GraphicsEnvironment(14810): Neither updatable production driver nor prerelease driver is supported.
+10-01 12:19:34.458 I/DisplayManager(14810): Choreographer implicitly registered for the refresh rate.
+10-01 12:19:34.489 D/mple.banksystem(14810): Initializing ProtoLog
+10-01 12:19:34.489 D/ProtoLog(14810): Initializing ProtoLog DataSource
+10-01 12:19:34.538 I/GFXSTREAM(14810): [eglDisplay.cpp(297)] Opening libGLESv1_CM_emulation.so
+10-01 12:19:34.538 I/GFXSTREAM(14810): [eglDisplay.cpp(297)] Opening libGLESv2_emulation.so
+10-01 12:19:34.538 W/libc    (14810): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:19:34.543 W/HWUI    (14810): Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+10-01 12:19:34.543 W/HWUI    (14810): Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-01 12:19:34.637 D/AppCompatDelegate(14810): Checking for metadata for AppLocalesMetadataHolderService : Service not found
+10-01 12:19:34.753 I/mple.banksystem(14810): hiddenapi: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/appcompat/widget/ViewUtils; (domain=app, TargetSdkVersion=34) using reflection: allowed
+10-01 12:19:34.777 I/Info:   (14810): Баланс после начисления процентов: 1070.0
+10-01 12:19:34.865 W/HWUI    (14810): Unknown dataspace 0
+10-01 12:19:34.878 W/libc    (14810): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:19:34.885 D/VRI[MainActivity](14810): WindowInsets changed: 1080x2400 statusBars:[0,128,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,160,0,84] 
+10-01 12:19:34.886 D/WindowOnBackDispatcher(14810): setTopOnBackInvokedCallback (unwrapped): android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:19:34.888 I/HWUI    (14810): Using FreeType backend (prop=Auto)
+10-01 12:19:34.890 D/WindowOnBackDispatcher(14810): setOnBackInvokedCallbackInfo: android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:19:34.893 I/Surface (14810): Creating surface for consumer unnamed-14810-0 with slotExpansion=1 for 64 slots
+10-01 12:19:34.895 I/Surface (14810): Creating surface for consumer VRI[MainActivity]#0(BLAST Consumer)0 with slotExpansion=1 for 64 slots
+10-01 12:19:35.039 D/InsetsController(14810): hide(ime())
+10-01 12:19:35.040 I/ImeTracker(14810): com.example.banksystem:cf7f428e: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+10-01 12:19:35.525 I/mple.banksystem(14810): Compiler allocated 4522KB to compile void android.view.ViewRootImpl.performTraversals(long)

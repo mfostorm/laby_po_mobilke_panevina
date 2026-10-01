@@ -1,0 +1,49 @@
+--------- beginning of main
+10-01 12:19:38.080 I/libprocessgroup(14915): Created cgroup /sys/fs/cgroup/apps/uid_10230/pid_14915
+10-01 12:19:38.102 I/Zygote  (14915): Process 14915 created for com.example.employees
+10-01 12:19:38.102 I/ample.employees(14915): Late-enabling -Xcheck:jni
+10-01 12:19:38.112 I/ample.employees(14915): Using generational CollectorTypeCMC GC.
+10-01 12:19:38.112 W/ample.employees(14915): Unexpected CPU variant for x86: x86_64.
+10-01 12:19:38.112 W/ample.employees(14915): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+10-01 12:19:38.125 D/nativeloader(14915): Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+10-01 12:19:38.174 D/CompatChangeReporter(14915): Compat change id reported: 242716250; UID 10230; state: ENABLED
+10-01 12:19:38.239 D/nativeloader(14915): Configuring clns-9 for other apk /data/app/~~Jp9AviE7IRx8AxMfjMLmoQ==/com.example.employees-7KAqnxXkp3Ng47dTnXFZ1A==/base.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~Jp9AviE7IRx8AxMfjMLmoQ==/com.example.employees-7KAqnxXkp3Ng47dTnXFZ1A==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.example.employees
+--------- beginning of system
+10-01 12:19:38.252 D/ActivityThread(14915): Set OS env TMPDIR to /data/user/0/com.example.employees/cache
+10-01 12:19:38.254 V/GraphicsEnvironment(14915): Currently set values for:
+10-01 12:19:38.254 V/GraphicsEnvironment(14915):   angle_gl_driver_selection_pkgs=[]
+10-01 12:19:38.254 V/GraphicsEnvironment(14915):   angle_gl_driver_selection_values=[]
+10-01 12:19:38.254 V/GraphicsEnvironment(14915): com.example.employees is not listed in per-application setting
+10-01 12:19:38.254 V/GraphicsEnvironment(14915): No special selections for ANGLE, returning default driver choice
+10-01 12:19:38.254 V/GraphicsEnvironment(14915): Neither updatable production driver nor prerelease driver is supported.
+10-01 12:19:38.303 I/DisplayManager(14915): Choreographer implicitly registered for the refresh rate.
+10-01 12:19:38.305 D/ample.employees(14915): Initializing ProtoLog
+10-01 12:19:38.305 D/ProtoLog(14915): Initializing ProtoLog DataSource
+10-01 12:19:38.365 I/GFXSTREAM(14915): [eglDisplay.cpp(297)] Opening libGLESv1_CM_emulation.so
+10-01 12:19:38.366 I/GFXSTREAM(14915): [eglDisplay.cpp(297)] Opening libGLESv2_emulation.so
+10-01 12:19:38.376 W/libc    (14915): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:19:38.384 W/HWUI    (14915): Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+10-01 12:19:38.384 W/HWUI    (14915): Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-01 12:19:38.391 D/AppCompatDelegate(14915): Checking for metadata for AppLocalesMetadataHolderService : Service not found
+10-01 12:19:38.480 I/ample.employees(14915): hiddenapi: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/appcompat/widget/ViewUtils; (domain=app, TargetSdkVersion=34) using reflection: allowed
+10-01 12:19:38.492 I/Info:   (14915): Employee constructor: Alice
+10-01 12:19:38.492 I/Info:   (14915): Manager constructor
+10-01 12:19:38.492 I/Info:   (14915): Employee constructor: Bob
+10-01 12:19:38.492 I/Info:   (14915): Developer constructor
+10-01 12:19:38.492 I/Salary: (14915): Alice: $60000
+10-01 12:19:38.492 I/Salary: (14915): Bob: $45000
+10-01 12:19:38.492 I/Info:   (14915): Manager is managing the team
+10-01 12:19:38.492 I/Info:   (14915): Developer is writing code
+10-01 12:19:38.492 I/Total Employees:(14915): 2
+10-01 12:19:38.492 I/First Employee:(14915): Alice
+10-01 12:19:38.547 W/HWUI    (14915): Unknown dataspace 0
+10-01 12:19:38.566 W/libc    (14915): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:19:38.764 D/VRI[MainActivity](14915): WindowInsets changed: 1080x2400 statusBars:[0,128,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,160,0,84] 
+10-01 12:19:38.766 D/WindowOnBackDispatcher(14915): setTopOnBackInvokedCallback (unwrapped): android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:19:38.768 D/WindowOnBackDispatcher(14915): setOnBackInvokedCallbackInfo: android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:19:38.768 I/HWUI    (14915): Using FreeType backend (prop=Auto)
+10-01 12:19:38.773 I/Surface (14915): Creating surface for consumer unnamed-14915-0 with slotExpansion=1 for 64 slots
+10-01 12:19:38.774 I/Surface (14915): Creating surface for consumer VRI[MainActivity]#0(BLAST Consumer)0 with slotExpansion=1 for 64 slots
+10-01 12:19:38.923 D/InsetsController(14915): hide(ime())
+10-01 12:19:38.924 I/ImeTracker(14915): com.example.employees:8a305c10: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+10-01 12:19:39.447 I/ample.employees(14915): Compiler allocated 4522KB to compile void android.view.ViewRootImpl.performTraversals(long)

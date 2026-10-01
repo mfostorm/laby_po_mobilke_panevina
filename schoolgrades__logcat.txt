@@ -1,0 +1,40 @@
+--------- beginning of main
+10-01 12:20:15.834 I/libprocessgroup(15775): Created cgroup /sys/fs/cgroup/apps/uid_10242/pid_15775
+10-01 12:20:15.842 I/Zygote  (15775): Process 15775 created for com.example.schoolgrades
+10-01 12:20:15.868 I/le.schoolgrades(15775): Late-enabling -Xcheck:jni
+10-01 12:20:15.882 I/le.schoolgrades(15775): Using generational CollectorTypeCMC GC.
+10-01 12:20:15.887 W/le.schoolgrades(15775): Unexpected CPU variant for x86: x86_64.
+10-01 12:20:15.887 W/le.schoolgrades(15775): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+10-01 12:20:15.917 D/nativeloader(15775): Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+10-01 12:20:15.975 D/CompatChangeReporter(15775): Compat change id reported: 242716250; UID 10242; state: ENABLED
+10-01 12:20:16.062 D/nativeloader(15775): Configuring clns-9 for other apk /data/app/~~_nkSz3NFfasqeiqmlLCobg==/com.example.schoolgrades-u1QK80Ato7284d2GMSx2ew==/base.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~_nkSz3NFfasqeiqmlLCobg==/com.example.schoolgrades-u1QK80Ato7284d2GMSx2ew==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.example.schoolgrades
+--------- beginning of system
+10-01 12:20:16.070 D/ActivityThread(15775): Set OS env TMPDIR to /data/user/0/com.example.schoolgrades/cache
+10-01 12:20:16.071 V/GraphicsEnvironment(15775): Currently set values for:
+10-01 12:20:16.071 V/GraphicsEnvironment(15775):   angle_gl_driver_selection_pkgs=[]
+10-01 12:20:16.071 V/GraphicsEnvironment(15775):   angle_gl_driver_selection_values=[]
+10-01 12:20:16.071 V/GraphicsEnvironment(15775): com.example.schoolgrades is not listed in per-application setting
+10-01 12:20:16.072 V/GraphicsEnvironment(15775): No special selections for ANGLE, returning default driver choice
+10-01 12:20:16.076 V/GraphicsEnvironment(15775): Neither updatable production driver nor prerelease driver is supported.
+10-01 12:20:16.131 D/le.schoolgrades(15775): Initializing ProtoLog
+10-01 12:20:16.131 D/ProtoLog(15775): Initializing ProtoLog DataSource
+10-01 12:20:16.132 I/DisplayManager(15775): Choreographer implicitly registered for the refresh rate.
+10-01 12:20:16.185 D/AppCompatDelegate(15775): Checking for metadata for AppLocalesMetadataHolderService : Service not found
+10-01 12:20:16.262 I/GFXSTREAM(15775): [eglDisplay.cpp(297)] Opening libGLESv1_CM_emulation.so
+10-01 12:20:16.263 I/GFXSTREAM(15775): [eglDisplay.cpp(297)] Opening libGLESv2_emulation.so
+10-01 12:20:16.272 W/libc    (15775): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:20:16.293 W/HWUI    (15775): Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+10-01 12:20:16.293 W/HWUI    (15775): Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-01 12:20:16.299 I/le.schoolgrades(15775): hiddenapi: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/appcompat/widget/ViewUtils; (domain=app, TargetSdkVersion=34) using reflection: allowed
+10-01 12:20:16.316 I/Info:   (15775): Новая оценка Джона: 4
+10-01 12:20:16.400 W/HWUI    (15775): Unknown dataspace 0
+10-01 12:20:16.417 W/libc    (15775): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:20:16.418 D/VRI[MainActivity](15775): WindowInsets changed: 1080x2400 statusBars:[0,128,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,160,0,84] 
+10-01 12:20:16.419 D/WindowOnBackDispatcher(15775): setTopOnBackInvokedCallback (unwrapped): android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:20:16.420 I/HWUI    (15775): Using FreeType backend (prop=Auto)
+10-01 12:20:16.422 D/WindowOnBackDispatcher(15775): setOnBackInvokedCallbackInfo: android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:20:16.430 I/Surface (15775): Creating surface for consumer unnamed-15775-0 with slotExpansion=1 for 64 slots
+10-01 12:20:16.431 I/Surface (15775): Creating surface for consumer VRI[MainActivity]#0(BLAST Consumer)0 with slotExpansion=1 for 64 slots
+10-01 12:20:16.586 D/InsetsController(15775): hide(ime())
+10-01 12:20:16.587 I/ImeTracker(15775): com.example.schoolgrades:07fd9dc8: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+10-01 12:20:17.209 I/le.schoolgrades(15775): Compiler allocated 4522KB to compile void android.view.ViewRootImpl.performTraversals(long)

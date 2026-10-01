@@ -1,0 +1,89 @@
+--------- beginning of main
+10-01 12:19:41.969 I/libprocessgroup(15001): Created cgroup /sys/fs/cgroup/apps/uid_10231/pid_15001
+10-01 12:19:42.025 I/Zygote  (15001): Process 15001 created for com.example.gradebook
+10-01 12:19:42.025 I/ample.gradebook(15001): Late-enabling -Xcheck:jni
+10-01 12:19:42.036 I/ample.gradebook(15001): Using generational CollectorTypeCMC GC.
+10-01 12:19:42.036 W/ample.gradebook(15001): Unexpected CPU variant for x86: x86_64.
+10-01 12:19:42.036 W/ample.gradebook(15001): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+10-01 12:19:42.041 D/nativeloader(15001): Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+10-01 12:19:42.081 D/CompatChangeReporter(15001): Compat change id reported: 242716250; UID 10231; state: ENABLED
+10-01 12:19:42.167 D/nativeloader(15001): Configuring clns-9 for other apk /data/app/~~giSthEbrCzdxk1uJyMRx4w==/com.example.gradebook-Ikt2NUkGBbgdJmoipfG7hg==/base.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~giSthEbrCzdxk1uJyMRx4w==/com.example.gradebook-Ikt2NUkGBbgdJmoipfG7hg==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.example.gradebook
+--------- beginning of system
+10-01 12:19:42.188 D/ActivityThread(15001): Set OS env TMPDIR to /data/user/0/com.example.gradebook/cache
+10-01 12:19:42.191 V/GraphicsEnvironment(15001): Currently set values for:
+10-01 12:19:42.191 V/GraphicsEnvironment(15001):   angle_gl_driver_selection_pkgs=[]
+10-01 12:19:42.191 V/GraphicsEnvironment(15001):   angle_gl_driver_selection_values=[]
+10-01 12:19:42.191 V/GraphicsEnvironment(15001): com.example.gradebook is not listed in per-application setting
+10-01 12:19:42.191 V/GraphicsEnvironment(15001): No special selections for ANGLE, returning default driver choice
+10-01 12:19:42.192 V/GraphicsEnvironment(15001): Neither updatable production driver nor prerelease driver is supported.
+10-01 12:19:42.240 I/DisplayManager(15001): Choreographer implicitly registered for the refresh rate.
+10-01 12:19:42.242 D/ample.gradebook(15001): Initializing ProtoLog
+10-01 12:19:42.242 D/ProtoLog(15001): Initializing ProtoLog DataSource
+10-01 12:19:42.291 I/GFXSTREAM(15001): [eglDisplay.cpp(297)] Opening libGLESv1_CM_emulation.so
+10-01 12:19:42.292 I/GFXSTREAM(15001): [eglDisplay.cpp(297)] Opening libGLESv2_emulation.so
+10-01 12:19:42.303 W/libc    (15001): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:19:42.308 W/HWUI    (15001): Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+10-01 12:19:42.309 W/HWUI    (15001): Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-01 12:19:42.338 D/AppCompatDelegate(15001): Checking for metadata for AppLocalesMetadataHolderService : Service not found
+10-01 12:19:42.451 I/ample.gradebook(15001): hiddenapi: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/appcompat/widget/ViewUtils; (domain=app, TargetSdkVersion=34) using reflection: allowed
+10-01 12:19:42.467 I/info    (15001): Student 0 = 2
+10-01 12:19:42.467 I/info    (15001): Student 1 = 1
+10-01 12:19:42.467 I/info    (15001): Student 2 = 3
+10-01 12:19:42.467 I/info    (15001): Student 3 = 3
+10-01 12:19:42.467 I/info    (15001): Student 4 = 3
+10-01 12:19:42.468 I/info    (15001): Student 5 = 3
+10-01 12:19:42.468 I/info    (15001): Student 6 = 3
+10-01 12:19:42.468 I/info    (15001): Student 7 = 2
+10-01 12:19:42.468 I/info    (15001): Student 8 = 5
+10-01 12:19:42.468 I/info    (15001): Student 9 = 5
+10-01 12:19:42.468 I/info    (15001): Student 10 = 1
+10-01 12:19:42.468 I/info    (15001): Student 11 = 1
+10-01 12:19:42.468 I/info    (15001): Student 12 = 4
+10-01 12:19:42.468 I/info    (15001): Student 13 = 5
+10-01 12:19:42.468 I/info    (15001): Student 14 = 4
+10-01 12:19:42.468 I/info    (15001): Student 15 = 5
+10-01 12:19:42.468 I/info    (15001): Student 16 = 2
+10-01 12:19:42.468 I/info    (15001): Student 17 = 1
+10-01 12:19:42.468 I/info    (15001): Student 18 = 1
+10-01 12:19:42.468 I/info    (15001): Student 19 = 1
+10-01 12:19:42.468 I/info    (15001): Student 20 = 1
+10-01 12:19:42.468 I/info    (15001): Student 21 = 4
+10-01 12:19:42.468 I/info    (15001): Student 22 = 4
+10-01 12:19:42.468 I/info    (15001): Student 23 = 4
+10-01 12:19:42.468 I/info    (15001): Student 24 = 2
+10-01 12:19:42.468 I/info    (15001): Student 25 = 3
+10-01 12:19:42.468 I/info    (15001): Student 26 = 4
+10-01 12:19:42.468 I/info    (15001): Student 27 = 2
+10-01 12:19:42.468 I/info    (15001): Student 28 = 3
+10-01 12:19:42.468 I/info    (15001): Student 29 = 2
+10-01 12:19:42.468 I/info    (15001): Student 30 = 5
+10-01 12:19:42.468 I/info    (15001): Student 31 = 4
+10-01 12:19:42.468 I/info    (15001): Student 32 = 4
+10-01 12:19:42.468 I/info    (15001): Student 33 = 4
+10-01 12:19:42.468 I/info    (15001): Student 34 = 2
+10-01 12:19:42.468 I/info    (15001): Student 35 = 3
+10-01 12:19:42.468 I/info    (15001): Student 36 = 2
+10-01 12:19:42.468 I/info    (15001): Student 37 = 2
+10-01 12:19:42.468 I/info    (15001): Student 38 = 3
+10-01 12:19:42.468 I/info    (15001): Student 39 = 1
+10-01 12:19:42.468 I/info    (15001): Student 40 = 4
+10-01 12:19:42.468 I/info    (15001): Student 41 = 1
+10-01 12:19:42.468 I/info    (15001): Student 42 = 5
+10-01 12:19:42.468 I/info    (15001): Student 43 = 2
+10-01 12:19:42.468 I/info    (15001): Student 44 = 4
+10-01 12:19:42.468 I/info    (15001): Student 45 = 3
+10-01 12:19:42.468 I/info    (15001): Student 46 = 5
+10-01 12:19:42.468 I/info    (15001): Student 47 = 2
+10-01 12:19:42.468 I/info    (15001): Student 48 = 2
+10-01 12:19:42.468 I/info    (15001): Student 49 = 4
+10-01 12:19:42.534 W/HWUI    (15001): Unknown dataspace 0
+10-01 12:19:42.545 W/libc    (15001): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:19:42.551 D/VRI[MainActivity](15001): WindowInsets changed: 1080x2400 statusBars:[0,128,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,160,0,84] 
+10-01 12:19:42.552 D/WindowOnBackDispatcher(15001): setTopOnBackInvokedCallback (unwrapped): android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:19:42.553 D/WindowOnBackDispatcher(15001): setOnBackInvokedCallbackInfo: android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:19:42.554 I/HWUI    (15001): Using FreeType backend (prop=Auto)
+10-01 12:19:42.559 I/Surface (15001): Creating surface for consumer unnamed-15001-0 with slotExpansion=1 for 64 slots
+10-01 12:19:42.561 I/Surface (15001): Creating surface for consumer VRI[MainActivity]#0(BLAST Consumer)0 with slotExpansion=1 for 64 slots
+10-01 12:19:42.681 D/InsetsController(15001): hide(ime())
+10-01 12:19:42.681 I/ImeTracker(15001): com.example.gradebook:e0c61402: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+10-01 12:19:43.018 I/ample.gradebook(15001): Compiler allocated 4522KB to compile void android.view.ViewRootImpl.performTraversals(long)

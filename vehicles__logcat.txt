@@ -1,0 +1,51 @@
+--------- beginning of main
+10-01 12:20:30.837 I/libprocessgroup(16102): Created cgroup /sys/fs/cgroup/apps/uid_10245/pid_16102
+10-01 12:20:30.851 I/Zygote  (16102): Process 16102 created for com.example.vehicles
+10-01 12:20:30.853 I/xample.vehicles(16102): Late-enabling -Xcheck:jni
+10-01 12:20:30.867 I/xample.vehicles(16102): Using generational CollectorTypeCMC GC.
+10-01 12:20:30.867 W/xample.vehicles(16102): Unexpected CPU variant for x86: x86_64.
+10-01 12:20:30.867 W/xample.vehicles(16102): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+10-01 12:20:30.880 D/nativeloader(16102): Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+10-01 12:20:30.898 D/CompatChangeReporter(16102): Compat change id reported: 242716250; UID 10245; state: ENABLED
+10-01 12:20:30.981 D/nativeloader(16102): Configuring clns-9 for other apk /data/app/~~gqAJgROrdrdCoclHEKjfoA==/com.example.vehicles-fAaremHJd52c70FZC4lONg==/base.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~gqAJgROrdrdCoclHEKjfoA==/com.example.vehicles-fAaremHJd52c70FZC4lONg==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.example.vehicles
+--------- beginning of system
+10-01 12:20:31.007 D/ActivityThread(16102): Set OS env TMPDIR to /data/user/0/com.example.vehicles/cache
+10-01 12:20:31.011 V/GraphicsEnvironment(16102): Currently set values for:
+10-01 12:20:31.011 V/GraphicsEnvironment(16102):   angle_gl_driver_selection_pkgs=[]
+10-01 12:20:31.011 V/GraphicsEnvironment(16102):   angle_gl_driver_selection_values=[]
+10-01 12:20:31.011 V/GraphicsEnvironment(16102): com.example.vehicles is not listed in per-application setting
+10-01 12:20:31.011 V/GraphicsEnvironment(16102): No special selections for ANGLE, returning default driver choice
+10-01 12:20:31.012 V/GraphicsEnvironment(16102): Neither updatable production driver nor prerelease driver is supported.
+10-01 12:20:31.069 I/DisplayManager(16102): Choreographer implicitly registered for the refresh rate.
+10-01 12:20:31.071 D/xample.vehicles(16102): Initializing ProtoLog
+10-01 12:20:31.071 D/ProtoLog(16102): Initializing ProtoLog DataSource
+10-01 12:20:31.108 I/GFXSTREAM(16102): [eglDisplay.cpp(297)] Opening libGLESv1_CM_emulation.so
+10-01 12:20:31.109 I/GFXSTREAM(16102): [eglDisplay.cpp(297)] Opening libGLESv2_emulation.so
+10-01 12:20:31.123 W/libc    (16102): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:20:31.132 W/HWUI    (16102): Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+10-01 12:20:31.132 W/HWUI    (16102): Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-01 12:20:31.168 D/AppCompatDelegate(16102): Checking for metadata for AppLocalesMetadataHolderService : Service not found
+10-01 12:20:31.272 I/xample.vehicles(16102): hiddenapi: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/appcompat/widget/ViewUtils; (domain=app, TargetSdkVersion=34) using reflection: allowed
+10-01 12:20:31.288 I/Info:   (16102): Vehicle constructor: Sedan
+10-01 12:20:31.288 I/Info:   (16102): Car constructor
+10-01 12:20:31.288 I/Info:   (16102): Vehicle constructor: Boeing 737
+10-01 12:20:31.288 I/Info:   (16102): Airplane constructor
+10-01 12:20:31.288 I/Car Speed:(16102): Max: 180
+10-01 12:20:31.288 I/Plane Speed:(16102): Max: 900
+10-01 12:20:31.288 I/Car Speed:(16102): Current: 50
+10-01 12:20:31.288 I/Plane Speed:(16102): Current: 300
+10-01 12:20:31.288 I/Info:   (16102): Car is driving on the road
+10-01 12:20:31.288 I/Info:   (16102): Airplane is flying in the sky
+10-01 12:20:31.288 I/Car Speed:(16102): After brake: 0
+10-01 12:20:31.288 I/Total Vehicles:(16102): 2
+10-01 12:20:31.358 W/HWUI    (16102): Unknown dataspace 0
+10-01 12:20:31.370 W/libc    (16102): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:20:31.378 D/VRI[MainActivity](16102): WindowInsets changed: 1080x2400 statusBars:[0,128,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,160,0,84] 
+10-01 12:20:31.379 D/WindowOnBackDispatcher(16102): setTopOnBackInvokedCallback (unwrapped): android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:20:31.380 D/WindowOnBackDispatcher(16102): setOnBackInvokedCallbackInfo: android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:20:31.380 I/HWUI    (16102): Using FreeType backend (prop=Auto)
+10-01 12:20:31.386 I/Surface (16102): Creating surface for consumer unnamed-16102-0 with slotExpansion=1 for 64 slots
+10-01 12:20:31.387 I/Surface (16102): Creating surface for consumer VRI[MainActivity]#0(BLAST Consumer)0 with slotExpansion=1 for 64 slots
+10-01 12:20:31.551 D/InsetsController(16102): hide(ime())
+10-01 12:20:31.551 I/ImeTracker(16102): com.example.vehicles:9193ceb7: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+10-01 12:20:32.133 I/xample.vehicles(16102): Compiler allocated 4522KB to compile void android.view.ViewRootImpl.performTraversals(long)

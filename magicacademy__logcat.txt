@@ -1,0 +1,53 @@
+--------- beginning of main
+10-01 12:19:52.990 I/libprocessgroup(15246): Created cgroup /sys/fs/cgroup/apps/uid_10237/pid_15246
+10-01 12:19:53.005 I/Zygote  (15246): Process 15246 created for com.example.magicacademy
+10-01 12:19:53.005 I/le.magicacademy(15246): Late-enabling -Xcheck:jni
+10-01 12:19:53.020 I/le.magicacademy(15246): Using generational CollectorTypeCMC GC.
+10-01 12:19:53.021 W/le.magicacademy(15246): Unexpected CPU variant for x86: x86_64.
+10-01 12:19:53.021 W/le.magicacademy(15246): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+10-01 12:19:53.062 D/nativeloader(15246): Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+10-01 12:19:53.155 D/CompatChangeReporter(15246): Compat change id reported: 242716250; UID 10237; state: ENABLED
+10-01 12:19:53.228 D/nativeloader(15246): Configuring clns-9 for other apk /data/app/~~kLm3KNi79sq8O8HZtlqvhQ==/com.example.magicacademy-0X77bHM0gpzn39pz6enX8g==/base.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~kLm3KNi79sq8O8HZtlqvhQ==/com.example.magicacademy-0X77bHM0gpzn39pz6enX8g==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.example.magicacademy
+--------- beginning of system
+10-01 12:19:53.236 D/ActivityThread(15246): Set OS env TMPDIR to /data/user/0/com.example.magicacademy/cache
+10-01 12:19:53.237 V/GraphicsEnvironment(15246): Currently set values for:
+10-01 12:19:53.237 V/GraphicsEnvironment(15246):   angle_gl_driver_selection_pkgs=[]
+10-01 12:19:53.238 V/GraphicsEnvironment(15246):   angle_gl_driver_selection_values=[]
+10-01 12:19:53.238 V/GraphicsEnvironment(15246): com.example.magicacademy is not listed in per-application setting
+10-01 12:19:53.238 V/GraphicsEnvironment(15246): No special selections for ANGLE, returning default driver choice
+10-01 12:19:53.240 V/GraphicsEnvironment(15246): Neither updatable production driver nor prerelease driver is supported.
+10-01 12:19:53.303 I/DisplayManager(15246): Choreographer implicitly registered for the refresh rate.
+10-01 12:19:53.305 D/le.magicacademy(15246): Initializing ProtoLog
+10-01 12:19:53.305 D/ProtoLog(15246): Initializing ProtoLog DataSource
+10-01 12:19:53.378 I/GFXSTREAM(15246): [eglDisplay.cpp(297)] Opening libGLESv1_CM_emulation.so
+10-01 12:19:53.379 I/GFXSTREAM(15246): [eglDisplay.cpp(297)] Opening libGLESv2_emulation.so
+10-01 12:19:53.381 W/libc    (15246): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:19:53.385 W/HWUI    (15246): Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+10-01 12:19:53.385 W/HWUI    (15246): Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-01 12:19:53.401 D/AppCompatDelegate(15246): Checking for metadata for AppLocalesMetadataHolderService : Service not found
+10-01 12:19:53.509 I/le.magicacademy(15246): hiddenapi: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/appcompat/widget/ViewUtils; (domain=app, TargetSdkVersion=34) using reflection: allowed
+10-01 12:19:53.524 I/Info:   (15246): Мана Гарри: 120
+10-01 12:19:53.524 I/Info:   (15246): Мана Драко: 90
+10-01 12:19:53.524 I/Info:   (15246): Мана Полумны: 110
+10-01 12:19:53.524 I/Info:   (15246): Гриффиндор колдует заклинание
+10-01 12:19:53.524 I/Info:   (15246): Слизерин колдует заклинание
+10-01 12:19:53.524 I/Info:   (15246): Когтевран колдует заклинание
+10-01 12:19:53.524 I/Info:   (15246): Палочка Гарри: Остролист
+10-01 12:19:53.524 I/Info:   (15246): Палочка Драко: Боярышник
+10-01 12:19:53.524 I/Info:   (15246): Палочка Полумны: Тополь
+10-01 12:19:53.524 I/Info:   (15246): Палочка Гермионы: Виноградная лоза
+10-01 12:19:53.524 I/Info:   (15246): Гриффиндор использует палочку из Остролист и применяет Ультимативное заклинание!
+10-01 12:19:53.524 I/Info:   (15246): Слизерин использует палочку из Боярышник и применяет Ультимативное заклинание!
+10-01 12:19:53.524 I/Info:   (15246): Когтевран использует палочку из Тополь и применяет Ультимативное заклинание!
+10-01 12:19:53.524 I/Info:   (15246): Гриффиндор использует палочку из Виноградная лоза и применяет Ультимативное заклинание!
+10-01 12:19:53.589 W/HWUI    (15246): Unknown dataspace 0
+10-01 12:19:53.599 W/libc    (15246): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:19:53.611 D/VRI[MainActivity](15246): WindowInsets changed: 1080x2400 statusBars:[0,128,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,160,0,84] 
+10-01 12:19:53.613 D/WindowOnBackDispatcher(15246): setTopOnBackInvokedCallback (unwrapped): android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:19:53.614 D/WindowOnBackDispatcher(15246): setOnBackInvokedCallbackInfo: android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:19:53.614 I/HWUI    (15246): Using FreeType backend (prop=Auto)
+10-01 12:19:53.619 I/Surface (15246): Creating surface for consumer unnamed-15246-0 with slotExpansion=1 for 64 slots
+10-01 12:19:53.621 I/Surface (15246): Creating surface for consumer VRI[MainActivity]#0(BLAST Consumer)0 with slotExpansion=1 for 64 slots
+10-01 12:19:53.787 D/InsetsController(15246): hide(ime())
+10-01 12:19:53.788 I/ImeTracker(15246): com.example.magicacademy:5a02ff5e: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+10-01 12:19:54.335 I/le.magicacademy(15246): Compiler allocated 4522KB to compile void android.view.ViewRootImpl.performTraversals(long)

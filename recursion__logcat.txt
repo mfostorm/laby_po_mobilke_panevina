@@ -1,0 +1,52 @@
+--------- beginning of main
+10-01 12:20:12.034 I/libprocessgroup(15674): Created cgroup /sys/fs/cgroup/apps/uid_10238/pid_15674
+10-01 12:20:12.061 I/Zygote  (15674): Process 15674 created for com.example.recursion
+10-01 12:20:12.061 I/ample.recursion(15674): Late-enabling -Xcheck:jni
+10-01 12:20:12.073 I/ample.recursion(15674): Using generational CollectorTypeCMC GC.
+10-01 12:20:12.074 W/ample.recursion(15674): Unexpected CPU variant for x86: x86_64.
+10-01 12:20:12.074 W/ample.recursion(15674): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+10-01 12:20:12.100 D/nativeloader(15674): Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+10-01 12:20:12.177 D/CompatChangeReporter(15674): Compat change id reported: 242716250; UID 10238; state: ENABLED
+10-01 12:20:12.253 D/nativeloader(15674): Configuring clns-9 for other apk /data/app/~~UdJDP45W1hHNiGJRZLV7ew==/com.example.recursion-Uolkny4izez1INHni16L1w==/base.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~UdJDP45W1hHNiGJRZLV7ew==/com.example.recursion-Uolkny4izez1INHni16L1w==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.example.recursion
+--------- beginning of system
+10-01 12:20:12.265 D/ActivityThread(15674): Set OS env TMPDIR to /data/user/0/com.example.recursion/cache
+10-01 12:20:12.267 V/GraphicsEnvironment(15674): Currently set values for:
+10-01 12:20:12.267 V/GraphicsEnvironment(15674):   angle_gl_driver_selection_pkgs=[]
+10-01 12:20:12.267 V/GraphicsEnvironment(15674):   angle_gl_driver_selection_values=[]
+10-01 12:20:12.267 V/GraphicsEnvironment(15674): com.example.recursion is not listed in per-application setting
+10-01 12:20:12.267 V/GraphicsEnvironment(15674): No special selections for ANGLE, returning default driver choice
+10-01 12:20:12.268 V/GraphicsEnvironment(15674): Neither updatable production driver nor prerelease driver is supported.
+10-01 12:20:12.317 I/DisplayManager(15674): Choreographer implicitly registered for the refresh rate.
+10-01 12:20:12.319 D/ample.recursion(15674): Initializing ProtoLog
+10-01 12:20:12.319 D/ProtoLog(15674): Initializing ProtoLog DataSource
+10-01 12:20:12.363 I/GFXSTREAM(15674): [eglDisplay.cpp(297)] Opening libGLESv1_CM_emulation.so
+10-01 12:20:12.364 I/GFXSTREAM(15674): [eglDisplay.cpp(297)] Opening libGLESv2_emulation.so
+10-01 12:20:12.374 W/libc    (15674): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:20:12.379 W/HWUI    (15674): Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+10-01 12:20:12.379 W/HWUI    (15674): Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-01 12:20:12.407 D/AppCompatDelegate(15674): Checking for metadata for AppLocalesMetadataHolderService : Service not found
+10-01 12:20:12.505 I/ample.recursion(15674): hiddenapi: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/appcompat/widget/ViewUtils; (domain=app, TargetSdkVersion=34) using reflection: allowed
+10-01 12:20:12.520 I/Info:   (15674): countUp(5):
+10-01 12:20:12.520 I/Info:   (15674): 1
+10-01 12:20:12.520 I/Info:   (15674): 2
+10-01 12:20:12.520 I/Info:   (15674): 3
+10-01 12:20:12.520 I/Info:   (15674): 4
+10-01 12:20:12.520 I/Info:   (15674): 5
+10-01 12:20:12.520 I/Info:   (15674): countDown(5):
+10-01 12:20:12.520 I/Info:   (15674): 5
+10-01 12:20:12.521 I/Info:   (15674): 4
+10-01 12:20:12.521 I/Info:   (15674): 3
+10-01 12:20:12.521 I/Info:   (15674): 2
+10-01 12:20:12.521 I/Info:   (15674): 1
+10-01 12:20:12.521 I/Info:   (15674): Сумма чисел от 1 до 5 = 15
+10-01 12:20:12.582 W/HWUI    (15674): Unknown dataspace 0
+10-01 12:20:12.596 W/libc    (15674): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:20:12.597 D/VRI[MainActivity](15674): WindowInsets changed: 1080x2400 statusBars:[0,128,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,160,0,84] 
+10-01 12:20:12.599 D/WindowOnBackDispatcher(15674): setTopOnBackInvokedCallback (unwrapped): android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:20:12.600 D/WindowOnBackDispatcher(15674): setOnBackInvokedCallbackInfo: android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:20:12.600 I/HWUI    (15674): Using FreeType backend (prop=Auto)
+10-01 12:20:12.605 I/Surface (15674): Creating surface for consumer unnamed-15674-0 with slotExpansion=1 for 64 slots
+10-01 12:20:12.606 I/Surface (15674): Creating surface for consumer VRI[MainActivity]#0(BLAST Consumer)0 with slotExpansion=1 for 64 slots
+10-01 12:20:12.776 D/InsetsController(15674): hide(ime())
+10-01 12:20:12.777 I/ImeTracker(15674): com.example.recursion:cad73e92: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+10-01 12:20:13.335 I/ample.recursion(15674): Compiler allocated 4522KB to compile void android.view.ViewRootImpl.performTraversals(long)

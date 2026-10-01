@@ -1,0 +1,40 @@
+--------- beginning of main
+10-01 12:20:00.644 I/libprocessgroup(15432): Created cgroup /sys/fs/cgroup/apps/uid_10236/pid_15432
+10-01 12:20:00.662 I/Zygote  (15432): Process 15432 created for com.example.militaryhospital
+10-01 12:20:00.662 I/ilitaryhospital(15432): Late-enabling -Xcheck:jni
+10-01 12:20:00.685 I/ilitaryhospital(15432): Using generational CollectorTypeCMC GC.
+10-01 12:20:00.686 W/ilitaryhospital(15432): Unexpected CPU variant for x86: x86_64.
+10-01 12:20:00.686 W/ilitaryhospital(15432): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+10-01 12:20:00.694 D/nativeloader(15432): Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+10-01 12:20:00.727 D/CompatChangeReporter(15432): Compat change id reported: 242716250; UID 10236; state: ENABLED
+10-01 12:20:00.835 D/nativeloader(15432): Configuring clns-9 for other apk /data/app/~~3VlW4fwuLaeY8XlKnKuEeQ==/com.example.militaryhospital-3BcqKiCm5KKohK3FjI1IDg==/base.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~3VlW4fwuLaeY8XlKnKuEeQ==/com.example.militaryhospital-3BcqKiCm5KKohK3FjI1IDg==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.example.militaryhospital
+--------- beginning of system
+10-01 12:20:00.842 D/ActivityThread(15432): Set OS env TMPDIR to /data/user/0/com.example.militaryhospital/cache
+10-01 12:20:00.844 V/GraphicsEnvironment(15432): Currently set values for:
+10-01 12:20:00.844 V/GraphicsEnvironment(15432):   angle_gl_driver_selection_pkgs=[]
+10-01 12:20:00.844 V/GraphicsEnvironment(15432):   angle_gl_driver_selection_values=[]
+10-01 12:20:00.844 V/GraphicsEnvironment(15432): com.example.militaryhospital is not listed in per-application setting
+10-01 12:20:00.844 V/GraphicsEnvironment(15432): No special selections for ANGLE, returning default driver choice
+10-01 12:20:00.847 V/GraphicsEnvironment(15432): Neither updatable production driver nor prerelease driver is supported.
+10-01 12:20:00.899 I/DisplayManager(15432): Choreographer implicitly registered for the refresh rate.
+10-01 12:20:00.899 D/ilitaryhospital(15432): Initializing ProtoLog
+10-01 12:20:00.899 D/ProtoLog(15432): Initializing ProtoLog DataSource
+10-01 12:20:00.962 I/GFXSTREAM(15432): [eglDisplay.cpp(297)] Opening libGLESv1_CM_emulation.so
+10-01 12:20:00.963 I/GFXSTREAM(15432): [eglDisplay.cpp(297)] Opening libGLESv2_emulation.so
+10-01 12:20:00.971 W/libc    (15432): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:20:00.976 W/HWUI    (15432): Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+10-01 12:20:00.976 W/HWUI    (15432): Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-01 12:20:00.979 D/AppCompatDelegate(15432): Checking for metadata for AppLocalesMetadataHolderService : Service not found
+10-01 12:20:01.084 I/ilitaryhospital(15432): hiddenapi: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/appcompat/widget/ViewUtils; (domain=app, TargetSdkVersion=34) using reflection: allowed
+10-01 12:20:01.100 I/Info:   (15432): Здоровье Рэмбо после лечения: 55
+10-01 12:20:01.166 W/HWUI    (15432): Unknown dataspace 0
+10-01 12:20:01.177 W/libc    (15432): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:20:01.182 D/VRI[MainActivity](15432): WindowInsets changed: 1080x2400 statusBars:[0,128,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,160,0,84] 
+10-01 12:20:01.184 D/WindowOnBackDispatcher(15432): setTopOnBackInvokedCallback (unwrapped): android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:20:01.185 D/WindowOnBackDispatcher(15432): setOnBackInvokedCallbackInfo: android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:20:01.185 I/HWUI    (15432): Using FreeType backend (prop=Auto)
+10-01 12:20:01.191 I/Surface (15432): Creating surface for consumer unnamed-15432-0 with slotExpansion=1 for 64 slots
+10-01 12:20:01.192 I/Surface (15432): Creating surface for consumer VRI[MainActivity]#0(BLAST Consumer)0 with slotExpansion=1 for 64 slots
+10-01 12:20:01.354 D/InsetsController(15432): hide(ime())
+10-01 12:20:01.355 I/ImeTracker(15432): com.example.militaryhospital:24def64c: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+10-01 12:20:01.820 I/ilitaryhospital(15432): Compiler allocated 4522KB to compile void android.view.ViewRootImpl.performTraversals(long)

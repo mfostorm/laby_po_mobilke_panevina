@@ -1,0 +1,45 @@
+--------- beginning of main
+10-01 12:20:04.426 I/libprocessgroup(15505): Created cgroup /sys/fs/cgroup/apps/uid_10241/pid_15505
+10-01 12:20:04.437 I/Zygote  (15505): Process 15505 created for com.example.moviequiz
+10-01 12:20:04.437 I/ample.moviequiz(15505): Late-enabling -Xcheck:jni
+10-01 12:20:04.447 I/ample.moviequiz(15505): Using generational CollectorTypeCMC GC.
+10-01 12:20:04.448 W/ample.moviequiz(15505): Unexpected CPU variant for x86: x86_64.
+10-01 12:20:04.448 W/ample.moviequiz(15505): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+10-01 12:20:04.461 D/nativeloader(15505): Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+10-01 12:20:04.534 D/CompatChangeReporter(15505): Compat change id reported: 242716250; UID 10241; state: ENABLED
+10-01 12:20:04.624 D/nativeloader(15505): Configuring clns-9 for other apk /data/app/~~r9Ibg1ZxCD6OqCCwal5IiQ==/com.example.moviequiz-mwHT9IISVEZtlEXpXgt5ow==/base.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~r9Ibg1ZxCD6OqCCwal5IiQ==/com.example.moviequiz-mwHT9IISVEZtlEXpXgt5ow==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.example.moviequiz
+--------- beginning of system
+10-01 12:20:04.633 D/ActivityThread(15505): Set OS env TMPDIR to /data/user/0/com.example.moviequiz/cache
+10-01 12:20:04.635 V/GraphicsEnvironment(15505): Currently set values for:
+10-01 12:20:04.635 V/GraphicsEnvironment(15505):   angle_gl_driver_selection_pkgs=[]
+10-01 12:20:04.635 V/GraphicsEnvironment(15505):   angle_gl_driver_selection_values=[]
+10-01 12:20:04.635 V/GraphicsEnvironment(15505): com.example.moviequiz is not listed in per-application setting
+10-01 12:20:04.635 V/GraphicsEnvironment(15505): No special selections for ANGLE, returning default driver choice
+10-01 12:20:04.637 V/GraphicsEnvironment(15505): Neither updatable production driver nor prerelease driver is supported.
+10-01 12:20:04.686 I/DisplayManager(15505): Choreographer implicitly registered for the refresh rate.
+10-01 12:20:04.687 D/ample.moviequiz(15505): Initializing ProtoLog
+10-01 12:20:04.687 D/ProtoLog(15505): Initializing ProtoLog DataSource
+10-01 12:20:04.736 I/GFXSTREAM(15505): [eglDisplay.cpp(297)] Opening libGLESv1_CM_emulation.so
+10-01 12:20:04.737 I/GFXSTREAM(15505): [eglDisplay.cpp(297)] Opening libGLESv2_emulation.so
+10-01 12:20:04.743 W/libc    (15505): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:20:04.750 W/HWUI    (15505): Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+10-01 12:20:04.750 W/HWUI    (15505): Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-01 12:20:04.766 D/AppCompatDelegate(15505): Checking for metadata for AppLocalesMetadataHolderService : Service not found
+10-01 12:20:04.897 I/ample.moviequiz(15505): hiddenapi: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/appcompat/widget/ViewUtils; (domain=app, TargetSdkVersion=34) using reflection: allowed
+10-01 12:20:04.913 I/info    (15505): What is the release year of The Matrix?
+10-01 12:20:04.913 I/info    (15505): Answer: 1999
+10-01 12:20:04.913 I/info    (15505): What is the release year of Inception?
+10-01 12:20:04.913 I/info    (15505): Answer: 2010
+10-01 12:20:04.913 I/info    (15505): What is the release year of The Godfather?
+10-01 12:20:04.913 I/info    (15505): Answer: 1972
+10-01 12:20:04.987 W/HWUI    (15505): Unknown dataspace 0
+10-01 12:20:04.999 W/libc    (15505): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:20:05.005 D/VRI[MainActivity](15505): WindowInsets changed: 1080x2400 statusBars:[0,128,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,160,0,84] 
+10-01 12:20:05.007 D/WindowOnBackDispatcher(15505): setTopOnBackInvokedCallback (unwrapped): android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:20:05.008 D/WindowOnBackDispatcher(15505): setOnBackInvokedCallbackInfo: android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:20:05.008 I/HWUI    (15505): Using FreeType backend (prop=Auto)
+10-01 12:20:05.014 I/Surface (15505): Creating surface for consumer unnamed-15505-0 with slotExpansion=1 for 64 slots
+10-01 12:20:05.015 I/Surface (15505): Creating surface for consumer VRI[MainActivity]#0(BLAST Consumer)0 with slotExpansion=1 for 64 slots
+10-01 12:20:05.130 D/InsetsController(15505): hide(ime())
+10-01 12:20:05.130 I/ImeTracker(15505): com.example.moviequiz:3569ae90: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+10-01 12:20:05.705 I/ample.moviequiz(15505): Compiler allocated 4522KB to compile void android.view.ViewRootImpl.performTraversals(long)

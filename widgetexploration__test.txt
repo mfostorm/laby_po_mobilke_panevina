@@ -1,0 +1,5 @@
+com.example.widgetexploration.ScreenshotTest:.
+
+Time: 11.191
+
+OK (1 test)

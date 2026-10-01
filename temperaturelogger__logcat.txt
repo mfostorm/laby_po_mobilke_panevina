@@ -1,0 +1,48 @@
+--------- beginning of main
+10-01 12:20:27.025 I/libprocessgroup(16016): Created cgroup /sys/fs/cgroup/apps/uid_10243/pid_16016
+10-01 12:20:27.034 I/Zygote  (16016): Process 16016 created for com.example.temperaturelogger
+10-01 12:20:27.034 I/mperaturelogger(16016): Late-enabling -Xcheck:jni
+10-01 12:20:27.045 I/mperaturelogger(16016): Using generational CollectorTypeCMC GC.
+10-01 12:20:27.045 W/mperaturelogger(16016): Unexpected CPU variant for x86: x86_64.
+10-01 12:20:27.045 W/mperaturelogger(16016): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+10-01 12:20:27.061 D/nativeloader(16016): Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+10-01 12:20:27.088 D/CompatChangeReporter(16016): Compat change id reported: 242716250; UID 10243; state: ENABLED
+10-01 12:20:27.152 D/nativeloader(16016): Configuring clns-9 for other apk /data/app/~~Is7e79aPUdnd06zTyJ9Leg==/com.example.temperaturelogger-vJB7Tf-Ta4akmnZKryNznw==/base.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~Is7e79aPUdnd06zTyJ9Leg==/com.example.temperaturelogger-vJB7Tf-Ta4akmnZKryNznw==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.example.temperaturelogger
+--------- beginning of system
+10-01 12:20:27.165 D/ActivityThread(16016): Set OS env TMPDIR to /data/user/0/com.example.temperaturelogger/cache
+10-01 12:20:27.167 V/GraphicsEnvironment(16016): Currently set values for:
+10-01 12:20:27.167 V/GraphicsEnvironment(16016):   angle_gl_driver_selection_pkgs=[]
+10-01 12:20:27.167 V/GraphicsEnvironment(16016):   angle_gl_driver_selection_values=[]
+10-01 12:20:27.167 V/GraphicsEnvironment(16016): com.example.temperaturelogger is not listed in per-application setting
+10-01 12:20:27.168 V/GraphicsEnvironment(16016): No special selections for ANGLE, returning default driver choice
+10-01 12:20:27.181 V/GraphicsEnvironment(16016): Neither updatable production driver nor prerelease driver is supported.
+10-01 12:20:27.266 D/mperaturelogger(16016): Initializing ProtoLog
+10-01 12:20:27.266 D/ProtoLog(16016): Initializing ProtoLog DataSource
+10-01 12:20:27.269 I/DisplayManager(16016): Choreographer implicitly registered for the refresh rate.
+10-01 12:20:27.323 I/GFXSTREAM(16016): [eglDisplay.cpp(297)] Opening libGLESv1_CM_emulation.so
+10-01 12:20:27.323 I/GFXSTREAM(16016): [eglDisplay.cpp(297)] Opening libGLESv2_emulation.so
+10-01 12:20:27.324 W/libc    (16016): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:20:27.328 W/HWUI    (16016): Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+10-01 12:20:27.329 W/HWUI    (16016): Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-01 12:20:27.424 D/AppCompatDelegate(16016): Checking for metadata for AppLocalesMetadataHolderService : Service not found
+10-01 12:20:27.518 I/mperaturelogger(16016): hiddenapi: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/appcompat/widget/ViewUtils; (domain=app, TargetSdkVersion=34) using reflection: allowed
+10-01 12:20:27.533 I/info    (16016): Weekly temperatures:
+10-01 12:20:27.533 I/info    (16016): Day 0 = 22
+10-01 12:20:27.533 I/info    (16016): Day 1 = 24
+10-01 12:20:27.533 I/info    (16016): Day 2 = 21
+10-01 12:20:27.533 I/info    (16016): Day 3 = 23
+10-01 12:20:27.533 I/info    (16016): Day 4 = 25
+10-01 12:20:27.533 I/info    (16016): Day 5 = 22
+10-01 12:20:27.534 I/info    (16016): Day 6 = 24
+10-01 12:20:27.534 I/info    (16016): Average temperature = 23.0
+10-01 12:20:27.596 W/HWUI    (16016): Unknown dataspace 0
+10-01 12:20:27.612 W/libc    (16016): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:20:27.614 D/VRI[MainActivity](16016): WindowInsets changed: 1080x2400 statusBars:[0,128,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,160,0,84] 
+10-01 12:20:27.615 D/WindowOnBackDispatcher(16016): setTopOnBackInvokedCallback (unwrapped): android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:20:27.616 D/WindowOnBackDispatcher(16016): setOnBackInvokedCallbackInfo: android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:20:27.617 I/HWUI    (16016): Using FreeType backend (prop=Auto)
+10-01 12:20:27.623 I/Surface (16016): Creating surface for consumer unnamed-16016-0 with slotExpansion=1 for 64 slots
+10-01 12:20:27.624 I/Surface (16016): Creating surface for consumer VRI[MainActivity]#0(BLAST Consumer)0 with slotExpansion=1 for 64 slots
+10-01 12:20:27.764 D/InsetsController(16016): hide(ime())
+10-01 12:20:27.765 I/ImeTracker(16016): com.example.temperaturelogger:2766eb27: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+10-01 12:20:28.186 I/mperaturelogger(16016): Compiler allocated 4522KB to compile void android.view.ViewRootImpl.performTraversals(long)

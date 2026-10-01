@@ -1,0 +1,53 @@
+--------- beginning of main
+10-01 12:20:23.294 I/libprocessgroup(15930): Created cgroup /sys/fs/cgroup/apps/uid_10239/pid_15930
+10-01 12:20:23.303 I/Zygote  (15930): Process 15930 created for com.example.spacefleet
+10-01 12:20:23.303 I/mple.spacefleet(15930): Late-enabling -Xcheck:jni
+10-01 12:20:23.313 I/mple.spacefleet(15930): Using generational CollectorTypeCMC GC.
+10-01 12:20:23.314 W/mple.spacefleet(15930): Unexpected CPU variant for x86: x86_64.
+10-01 12:20:23.314 W/mple.spacefleet(15930): Known variants: atom, sandybridge, silvermont, goldmont, goldmont-plus, goldmont-without-sha-xsaves, tremont, kabylake, alderlake, pantherlake, default
+10-01 12:20:23.325 D/nativeloader(15930): Load libframework-connectivity-tiramisu-jni.so using APEX ns com_android_tethering for caller /apex/com.android.tethering/javalib/framework-connectivity-t.jar: ok
+10-01 12:20:23.347 D/CompatChangeReporter(15930): Compat change id reported: 242716250; UID 10239; state: ENABLED
+10-01 12:20:23.436 D/nativeloader(15930): Configuring clns-9 for other apk /data/app/~~MsT2YzJj1ZjtOIrmwgt7Cg==/com.example.spacefleet-aaNbalCjvR-yR8oR8VLoHw==/base.apk. target_sdk_version=34, uses_libraries=, library_path=/data/app/~~MsT2YzJj1ZjtOIrmwgt7Cg==/com.example.spacefleet-aaNbalCjvR-yR8oR8VLoHw==/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/com.example.spacefleet
+--------- beginning of system
+10-01 12:20:23.447 D/ActivityThread(15930): Set OS env TMPDIR to /data/user/0/com.example.spacefleet/cache
+10-01 12:20:23.448 V/GraphicsEnvironment(15930): Currently set values for:
+10-01 12:20:23.449 V/GraphicsEnvironment(15930):   angle_gl_driver_selection_pkgs=[]
+10-01 12:20:23.449 V/GraphicsEnvironment(15930):   angle_gl_driver_selection_values=[]
+10-01 12:20:23.449 V/GraphicsEnvironment(15930): com.example.spacefleet is not listed in per-application setting
+10-01 12:20:23.449 V/GraphicsEnvironment(15930): No special selections for ANGLE, returning default driver choice
+10-01 12:20:23.450 V/GraphicsEnvironment(15930): Neither updatable production driver nor prerelease driver is supported.
+10-01 12:20:23.524 I/DisplayManager(15930): Choreographer implicitly registered for the refresh rate.
+10-01 12:20:23.527 D/mple.spacefleet(15930): Initializing ProtoLog
+10-01 12:20:23.529 D/ProtoLog(15930): Initializing ProtoLog DataSource
+10-01 12:20:23.576 I/GFXSTREAM(15930): [eglDisplay.cpp(297)] Opening libGLESv1_CM_emulation.so
+10-01 12:20:23.576 I/GFXSTREAM(15930): [eglDisplay.cpp(297)] Opening libGLESv2_emulation.so
+10-01 12:20:23.592 W/libc    (15930): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:20:23.615 W/HWUI    (15930): Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+10-01 12:20:23.615 W/HWUI    (15930): Failed to initialize 101010-2 format, error = EGL_SUCCESS
+10-01 12:20:23.623 D/AppCompatDelegate(15930): Checking for metadata for AppLocalesMetadataHolderService : Service not found
+10-01 12:20:23.717 I/mple.spacefleet(15930): hiddenapi: Accessing hidden method Landroid/view/ViewGroup;->makeOptionalFitsSystemWindows()V (runtime_flags=0, domain=platform, api=unsupported) from Landroidx/appcompat/widget/ViewUtils; (domain=app, TargetSdkVersion=34) using reflection: allowed
+10-01 12:20:23.735 I/Info:   (15930): Щит корабля Крейсер: 200
+10-01 12:20:23.735 I/Info:   (15930): Щит корабля Перехватчик: 80
+10-01 12:20:23.735 I/Info:   (15930): Щит корабля Линкор: 300
+10-01 12:20:23.735 I/Info:   (15930): Крейсер открывает огонь лазерами
+10-01 12:20:23.735 I/Info:   (15930): Перехватчик открывает огонь лазерами
+10-01 12:20:23.735 I/Info:   (15930): Линкор открывает огонь лазерами
+10-01 12:20:23.735 I/Info:   (15930): Капитан корабля Крейсер: Пикард
+10-01 12:20:23.735 I/Info:   (15930): Капитан корабля Перехватчик: Снейк
+10-01 12:20:23.735 I/Info:   (15930): Капитан корабля Линкор: Галер
+10-01 12:20:23.735 I/Info:   (15930): Капитан корабля Фрегат: Сиско
+10-01 12:20:23.735 I/Info:   (15930): Капитан Пикард с корабля Крейсер запускает торпеду!
+10-01 12:20:23.735 I/Info:   (15930): Капитан Снейк с корабля Перехватчик запускает торпеду!
+10-01 12:20:23.735 I/Info:   (15930): Капитан Галер с корабля Линкор запускает торпеду!
+10-01 12:20:23.735 I/Info:   (15930): Капитан Сиско с корабля Фрегат запускает торпеду!
+10-01 12:20:23.802 W/HWUI    (15930): Unknown dataspace 0
+10-01 12:20:23.810 W/libc    (15930): Access denied finding property "vendor.mesa.virtgpu.kumquat"
+10-01 12:20:23.820 D/VRI[MainActivity](15930): WindowInsets changed: 1080x2400 statusBars:[0,128,0,0] navigationBars:[0,0,0,63] mandatorySystemGestures:[0,160,0,84] 
+10-01 12:20:23.821 D/WindowOnBackDispatcher(15930): setTopOnBackInvokedCallback (unwrapped): android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:20:23.822 D/WindowOnBackDispatcher(15930): setOnBackInvokedCallbackInfo: android.view.ViewRootImpl$$ExternalSyntheticLambda16@c36e974
+10-01 12:20:23.822 I/HWUI    (15930): Using FreeType backend (prop=Auto)
+10-01 12:20:23.829 I/Surface (15930): Creating surface for consumer unnamed-15930-0 with slotExpansion=1 for 64 slots
+10-01 12:20:23.831 I/Surface (15930): Creating surface for consumer VRI[MainActivity]#0(BLAST Consumer)0 with slotExpansion=1 for 64 slots
+10-01 12:20:23.971 D/InsetsController(15930): hide(ime())
+10-01 12:20:23.972 I/ImeTracker(15930): com.example.spacefleet:a5bef937: onCancelled at PHASE_CLIENT_ALREADY_HIDDEN
+10-01 12:20:24.425 I/mple.spacefleet(15930): Compiler allocated 4522KB to compile void android.view.ViewRootImpl.performTraversals(long)

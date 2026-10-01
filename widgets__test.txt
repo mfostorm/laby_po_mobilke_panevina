@@ -1,0 +1,5 @@
+com.example.widgets.ScreenshotTest:.
+
+Time: 6.931
+
+OK (1 test)
