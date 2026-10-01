@@ -1,0 +1,165 @@
+// Проект-запускалка: собирает все приложения из папок «код/» и снимает скриншоты.
+// Использование: запустить эмулятор → Gradle → LabsRunner → Tasks → labs → screenshots
+
+plugins {
+    id 'com.android.application' version '8.7.3' apply false
+}
+
+def apps = gradle.ext.labApps
+
+// Приложения с интерфейсом: для них есть UI-тест (uitests/<имя>/ScreenshotTest.java),
+// который нажимает кнопки и делает снимки экрана
+def uiApps = apps.keySet().findAll { new File(rootDir, "uitests/$it/ScreenshotTest.java").exists() }
+
+// Записывает файл, только если содержимое изменилось (чтобы не пересобирать лишнее)
+def writeIfChanged = { File f, String text ->
+    f.parentFile.mkdirs()
+    if (!f.exists() || f.getText('UTF-8') != text) f.setText(text, 'UTF-8')
+}
+
+// Название приложения в шапке: «ЛР13 …» или имя подпапки (SpaceFleet и т. п.)
+def appTitle = { File src -> src.name == 'код' ? src.parentFile.name : "${src.parentFile.parentFile.name} · ${src.name}" }
+
+subprojects { p ->
+    def info = apps[p.name]
+    def pkgPath = info.pkg.replace('.', '/')
+    def main = new File(p.projectDir, 'src/main')
+
+    // 1. Исходники копируются из папки «код/» (она остаётся единственным оригиналом)
+    info.src.listFiles().findAll { it.name.endsWith('.java') }.each {
+        writeIfChanged(new File(main, "java/$pkgPath/${it.name}"), it.getText('UTF-8'))
+    }
+    def layout = new File(info.src, 'activity_main.xml')
+    writeIfChanged(new File(main, 'res/layout/activity_main.xml'), layout.exists() ? layout.getText('UTF-8') : '''\
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Hello World!" />
+</FrameLayout>
+''')
+    writeIfChanged(new File(main, 'AndroidManifest.xml'), """\
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:label="${appTitle(info.src)}"
+        android:icon="@android:drawable/sym_def_app_icon"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
+""")
+    def uiTest = new File(rootDir, "uitests/${p.name}/ScreenshotTest.java")
+    if (uiTest.exists()) {
+        writeIfChanged(new File(p.projectDir, "src/androidTest/java/$pkgPath/ScreenshotTest.java"),
+                "package ${info.pkg};\n\n" + uiTest.getText('UTF-8'))
+    }
+
+    // 2. Обычная конфигурация Android-приложения
+    apply plugin: 'com.android.application'
+
+    android {
+        namespace info.pkg
+        compileSdk 35
+
+        defaultConfig {
+            applicationId info.pkg
+            minSdk 24
+            targetSdk 34
+            versionCode 1
+            versionName '1.0'
+            testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        }
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_17
+            targetCompatibility JavaVersion.VERSION_17
+        }
+
+        lint {
+            abortOnError false
+            checkReleaseBuilds false
+        }
+    }
+
+    dependencies {
+        // Выравнивает версии kotlin-stdlib у зависимостей (иначе «Duplicate class kotlin…»)
+        implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.22')
+        implementation 'androidx.appcompat:appcompat:1.7.0'
+        implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+        androidTestImplementation 'androidx.test:runner:1.6.2'
+        androidTestImplementation 'androidx.test:rules:1.6.1'
+        androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+        androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+    }
+}
+
+tasks.register('screenshots') {
+    group = 'labs'
+    description = 'Ставит все приложения на эмулятор, снимает экраны и Logcat в папку screenshots/'
+
+    dependsOn subprojects.collect { "${it.path}:installDebug" }
+    dependsOn uiApps.collect { ":$it:installDebugAndroidTest" }
+
+    doLast {
+        def sdk = project(":${apps.keySet().first()}").android.sdkDirectory
+        def isWindows = System.getProperty('os.name').toLowerCase().contains('win')
+        def adb = new File(sdk, "platform-tools/${isWindows ? 'adb.exe' : 'adb'}").absolutePath
+        def out = new File(rootDir.parentFile, 'screenshots')
+        out.mkdirs()
+
+        def run = { List args ->
+            def proc = new ProcessBuilder([adb] + args*.toString()).redirectErrorStream(true).start()
+            def bytes = proc.inputStream.readAllBytes()
+            proc.waitFor()
+            bytes
+        }
+        def sh = { List args -> new String(run(args), 'UTF-8').replace('\r', '').trim() }
+
+        // Будим экран и убираем блокировку
+        sh(['shell', 'input', 'keyevent', 'KEYCODE_WAKEUP'])
+        sh(['shell', 'wm', 'dismiss-keyguard'])
+
+        apps.each { name, info ->
+            def pkg = info.pkg
+            if (name in uiApps) {
+                logger.lifecycle("▶ $name — UI-сценарий")
+                sh(['shell', 'run-as', pkg, 'rm', '-rf', 'files/shots'])
+                def result = sh(['shell', 'am', 'instrument', '-w', "${pkg}.test/androidx.test.runner.AndroidJUnitRunner"])
+                new File(out, "${name}__test.txt").setText(result, 'UTF-8')
+                if (!result.contains('OK (')) logger.warn("  ⚠ тест не прошёл, подробности в screenshots/${name}__test.txt")
+                sh(['shell', 'run-as', pkg, 'ls', 'files/shots']).readLines()*.trim().findAll { it.endsWith('.png') }.each { f ->
+                    new File(out, "${name}__${f}").bytes = run(['exec-out', 'run-as', pkg, 'cat', "files/shots/$f"])
+                    logger.lifecycle("  ✓ ${name}__${f}")
+                }
+            } else {
+                logger.lifecycle("▶ $name — Logcat")
+                sh(['shell', 'am', 'force-stop', pkg])
+                sh(['logcat', '-c'])
+                sh(['shell', 'am', 'start', '-W', '-n', "$pkg/.MainActivity"])
+                sleep(2500)
+                def pid = sh(['shell', 'pidof', pkg])
+                new File(out, "${name}__logcat.txt").setText(sh(['logcat', '-d', '-v', 'time', "--pid=$pid"]), 'UTF-8')
+                new File(out, "${name}__screen.png").bytes = run(['exec-out', 'screencap', '-p'])
+                logger.lifecycle("  ✓ ${name}__logcat.txt, ${name}__screen.png")
+            }
+        }
+        logger.lifecycle("\nГотово! Все файлы в папке: ${out.absolutePath}")
+    }
+}
