@@ -1,11 +1,6 @@
-import static androidx.test.espresso.Espresso.closeSoftKeyboard;
-import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.replaceText;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
-
 import android.app.Instrumentation;
 import android.graphics.Bitmap;
+import android.widget.EditText;
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -18,18 +13,28 @@ import org.junit.runner.RunWith;
 import java.io.File;
 import java.io.FileOutputStream;
 
-// Автоматический сценарий: нажимает виджеты и сохраняет снимки экрана
-// во внутреннюю папку приложения files/shots (оттуда их забирает задача screenshots)
+// Автоматический сценарий: нажимает виджеты (performClick — то же, что нажатие
+// пальцем, вызываются те же слушатели) и сохраняет снимки экрана во внутреннюю
+// папку приложения files/shots, откуда их забирает задача screenshots
 @RunWith(AndroidJUnit4.class)
 public class ScreenshotTest {
 
     @Rule
     public ActivityScenarioRule<MainActivity> rule = new ActivityScenarioRule<>(MainActivity.class);
 
+    private void click(int id) {
+        rule.getScenario().onActivity(a -> a.findViewById(id).performClick());
+        InstrumentationRegistry.getInstrumentation().waitForIdleSync();
+    }
+
+    private void type(int id, String text) {
+        rule.getScenario().onActivity(a -> ((EditText) a.findViewById(id)).setText(text));
+    }
+
     private void shot(String name) throws Exception {
         Instrumentation instr = InstrumentationRegistry.getInstrumentation();
         instr.waitForIdleSync();
-        Thread.sleep(800);
+        Thread.sleep(1000);
         Bitmap bmp = instr.getUiAutomation().takeScreenshot();
         File dir = new File(instr.getTargetContext().getFilesDir(), "shots");
         dir.mkdirs();
@@ -42,18 +47,17 @@ public class ScreenshotTest {
     public void screens() throws Exception {
         shot("1_start");
 
-        onView(withId(R.id.checkBoxAlpha)).perform(click());
-        onView(withId(R.id.checkBoxScale)).perform(click());
-        onView(withId(R.id.radioRed)).perform(click());
+        click(R.id.checkBoxAlpha);
+        click(R.id.checkBoxScale);
+        click(R.id.radioRed);
         shot("2_alpha_scale_red");
 
-        onView(withId(R.id.radioBlue)).perform(click());
-        onView(withId(R.id.editText)).perform(replaceText("Привет, Android!"));
-        closeSoftKeyboard();
-        onView(withId(R.id.button)).perform(click());
+        click(R.id.radioBlue);
+        type(R.id.editText, "Привет, Android!");
+        click(R.id.button);
         shot("3_blue_copy");
 
-        onView(withId(R.id.switch1)).perform(click());
+        click(R.id.switch1);
         shot("4_switch_off");
     }
 }
