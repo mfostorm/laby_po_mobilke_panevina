@@ -3,21 +3,24 @@
 //   # / ## / ###       — заголовки
 //   - пункт, 1. пункт  — списки
 //   | a | b |          — таблицы (вторая строка |---|)
-//   ```lang ... ```    — блок кода
+//   ```lang ... ```    — блок кода (```copy — текст для копирования обычным шрифтом)
 //   > текст            — примечание
-//   **жирный**, *курсив*, `код`
+//   **жирный**, *курсив*, `код`, [[поле для заполнения]] — жёлтая подсветка
 // Директивы:
 //   <!-- target: путь/к/Отчёт.docx -->   — куда сохранить (от корня репозитория)
 //   <!-- src: путь/к/папке/работы -->    — откуда брать @code (по умолчанию папка target)
 //   @code путь [N-M]                     — вставить файл (путь от папки отчёта), опционально строки N..M
 //   @out имя                             — вставить вывод программы из tools/out/имя.txt
 //   @img файл.png | подпись              — рисунок из tools/img (Logcat), с подписью «Рисунок N — …»
+//   @shot высота_см | подпись | подсказка — пустая рамка под скриншот с подписью «Рисунок N — …»
+//   @cols 3,1,1,2 / @tablefont 11        — относительная ширина колонок и шрифт следующей таблицы
+//   <br> в ячейке таблицы                — перенос на новый абзац
 //   @imgrow N[:см] | файл1 | подпись1 | … — снимки экрана в ряд по N штук (ширина каждого не больше см)
 const fs = require("fs");
 const path = require("path");
 const {
   Document, Packer, Paragraph, TextRun, AlignmentType, LevelFormat, Table, TableRow,
-  TableCell, WidthType, BorderStyle, ShadingType, Footer, PageNumber, HeadingLevel, ImageRun,
+  TableCell, WidthType, BorderStyle, ShadingType, Footer, PageNumber, HeadingLevel, ImageRun, HeightRule, VerticalAlign,
 } = require("docx");
 
 const ROOT = path.resolve(__dirname, "..");
@@ -32,14 +35,15 @@ const outBorder = { style: BorderStyle.SINGLE, size: 4, color: "A9C4A0", space: 
 
 function inlineRuns(text, base = {}) {
   const runs = [];
-  const re = /(\*\*.+?\*\*|`[^`]+`|\*[^*\s][^*]*\*)/g;
+  const re = /(\[\[.+?\]\]|\*\*.+?\*\*|`[^`]+`|\*[^*\s][^*]*\*)/g;
   let last = 0, m;
   while ((m = re.exec(text))) {
     if (m.index > last) runs.push(new TextRun({ text: text.slice(last, m.index), ...base }));
     const t = m[0];
-    if (t.startsWith("**")) runs.push(...inlineRuns(t.slice(2, -2), { ...base, bold: true }));
+    if (t.startsWith("[[")) runs.push(...inlineRuns(t.slice(2, -2), { ...base, highlight: "yellow" }));
+    else if (t.startsWith("**")) runs.push(...inlineRuns(t.slice(2, -2), { ...base, bold: true }));
     else if (t.startsWith("`")) runs.push(new TextRun({ text: t.slice(1, -1), font: MONO, size: (base.size || BODY) - 4,
-      bold: base.bold, italics: base.italics }));
+      bold: base.bold, italics: base.italics, highlight: base.highlight }));
     else runs.push(new TextRun({ text: t.slice(1, -1), italics: true, ...base }));
     last = m.index + t.length;
   }
@@ -48,16 +52,19 @@ function inlineRuns(text, base = {}) {
 }
 
 function codeBlock(lines, kind = "code") {
-  const border = kind === "out" ? outBorder : codeBorder;
-  const fill = kind === "out" ? "F1F7EE" : "F4F4F4";
+  // kind: code — код, out — вывод программы, copy — готовый текст для копирования (обычный шрифт)
+  const border = kind === "out" ? outBorder : kind === "copy" ? { style: BorderStyle.SINGLE, size: 4, color: "E0C97F", space: 4 } : codeBorder;
+  const fill = kind === "out" ? "F1F7EE" : kind === "copy" ? "FFF9E6" : "F4F4F4";
   while (lines.length && lines[lines.length - 1].trim() === "") lines.pop();
   return lines.map((line, i) => new Paragraph({
     keepNext: i < lines.length - 1 && lines.length <= 14,
-    spacing: { before: i === 0 ? 60 : 0, after: i === lines.length - 1 ? 160 : 0, line: 240 },
+    spacing: { before: i === 0 ? 60 : 0, after: i === lines.length - 1 ? 160 : 0, line: kind === "copy" ? 260 : 240, lineRule: "auto" },
     indent: { left: 113, right: 113 },
     shading: { type: ShadingType.CLEAR, fill, color: "auto" },
     border: { top: border, left: border, bottom: border, right: border },
-    children: [new TextRun({ text: line.replace(/\t/g, "    ") || " ", font: MONO, size: CODE })],
+    children: [kind === "copy"
+      ? new TextRun({ text: line || " ", font: FONT, size: BODY - 4 })
+      : new TextRun({ text: line.replace(/\t/g, "    ") || " ", font: MONO, size: CODE })],
   }));
 }
 
@@ -159,6 +166,33 @@ function screenRow(items, perRow, nextNum, maxCm) {
   return new Table({ width: { size: colW * perRow, type: WidthType.DXA }, columnWidths: Array(perRow).fill(colW), rows });
 }
 
+// Пустая рамка (пунктир) под скриншот: высота «не меньше», чтобы вставленная картинка не обрезалась
+function shotPlaceholder(hCm, n, text, hint) {
+  const dash = { style: BorderStyle.DASHED, size: 6, color: "8EA9C1" };
+  return [
+    new Table({
+      width: { size: TEXT_WIDTH, type: WidthType.DXA },
+      columnWidths: [TEXT_WIDTH],
+      rows: [new TableRow({
+        cantSplit: true,
+        height: { value: Math.round(hCm * 567), rule: HeightRule.ATLEAST },
+        children: [new TableCell({
+          width: { size: TEXT_WIDTH, type: WidthType.DXA },
+          verticalAlign: VerticalAlign.CENTER,
+          shading: { type: ShadingType.CLEAR, fill: "F5F8FB", color: "auto" },
+          borders: { top: dash, left: dash, bottom: dash, right: dash },
+          children: [new Paragraph({
+            alignment: AlignmentType.CENTER,
+            spacing: { line: 240, lineRule: "auto" },
+            children: inlineRuns(`[ Вставьте скриншот: ${hint || text} ]`, { italics: true, color: "7F8C99", size: BODY - 4 }),
+          })],
+        })],
+      })],
+    }),
+    figCaption(n, text),
+  ];
+}
+
 function caption(text) {
   return new Paragraph({
     keepNext: true,
@@ -167,10 +201,13 @@ function caption(text) {
   });
 }
 
-function table(rows) {
+function table(rows, weights, fontPt) {
   const cols = rows[0].length;
-  const widths = Array(cols).fill(Math.floor(TEXT_WIDTH / cols));
+  const w = weights && weights.length === cols ? weights : Array(cols).fill(1);
+  const total = w.reduce((a, b) => a + b, 0);
+  const widths = w.map((x) => Math.floor(TEXT_WIDTH * x / total));
   widths[cols - 1] = TEXT_WIDTH - widths.slice(0, -1).reduce((a, b) => a + b, 0);
+  const size = fontPt ? fontPt * 2 : BODY - 4;
   const cellBorder = { style: BorderStyle.SINGLE, size: 4, color: "808080" };
   return new Table({
     width: { size: TEXT_WIDTH, type: WidthType.DXA },
@@ -182,10 +219,10 @@ function table(rows) {
         shading: ri === 0 ? { type: ShadingType.CLEAR, fill: "E7E6E6", color: "auto" } : undefined,
         borders: { top: cellBorder, left: cellBorder, bottom: cellBorder, right: cellBorder },
         margins: { top: 40, bottom: 40, left: 80, right: 80 },
-        children: [new Paragraph({
-          spacing: { line: 240 },
-          children: inlineRuns(c, ri === 0 ? { bold: true, size: BODY - 4 } : { size: BODY - 4 }),
-        })],
+        children: c.split(/<br\s*\/?>/).map((part) => new Paragraph({
+          spacing: { line: 240, lineRule: "auto" },
+          children: inlineRuns(part.trim(), ri === 0 ? { bold: true, size } : { size }),
+        })),
       })),
     })),
   });
@@ -203,15 +240,19 @@ function build(mdFile) {
   let para = [];
   let listCounter = 0;
   let figNum = 0;
+  let nextCols = null, nextFont = null;
   let prevList = null;
 
   const flush = () => {
     if (para.length) {
+      const text = para.join(" ");
+      const isTableTitle = /^Таблица \d+ — /.test(text);   // подпись таблицы держим вместе с таблицей
       out.push(new Paragraph({
         alignment: AlignmentType.JUSTIFIED,
         indent: { firstLine: 709 },
-        spacing: { after: 80 },
-        children: inlineRuns(para.join(" ")),
+        spacing: { before: isTableTitle ? 120 : 0, after: 80 },
+        keepNext: isTableTitle,
+        children: inlineRuns(text),
       }));
       para = [];
     }
@@ -221,15 +262,20 @@ function build(mdFile) {
     const line = lines[i];
     const t = line.trim();
     const listType = /^- /.test(t) ? "bullet" : /^\d+\. /.test(t) ? "number" : null;
-    if (listType && listType !== prevList) listCounter++;
-    if (!listType && t !== "") prevList = null;
+    // Подпункт: строка списка с отступом от 2 пробелов внутри уже начатого списка — второй уровень,
+    // нумерацию основного списка не сбрасывает
+    const nested = !!listType && prevList !== null && /^ {2,}/.test(line);
+    if (listType && !nested && listType !== prevList) listCounter++;
+    // блок кода/текста внутри пункта списка не прерывает нумерацию
+    if (!listType && t !== "" && !t.startsWith("```")) prevList = null;
 
     if (t.startsWith("<!--")) continue;
     if (t.startsWith("```")) {
       flush();
       const block = [];
+      const lang = t.slice(3).trim();
       for (i++; i < lines.length && !lines[i].trim().startsWith("```"); i++) block.push(lines[i]);
-      out.push(...codeBlock(block));
+      out.push(...codeBlock(block, lang === "copy" ? "copy" : "code"));
       continue;
     }
     if (t.startsWith("@code ")) {
@@ -272,7 +318,9 @@ function build(mdFile) {
         rows.push(cells);
       }
       i--;
-      out.push(table(rows));
+      out.push(table(rows, nextCols, nextFont));
+      nextCols = null;
+      nextFont = null;
       out.push(new Paragraph({ spacing: { after: 80 }, children: [] }));
       continue;
     }
@@ -285,6 +333,14 @@ function build(mdFile) {
         border: { left: { style: BorderStyle.SINGLE, size: 12, color: "7F9DB9", space: 8 } },
         children: inlineRuns(t.slice(2), { italics: true, size: BODY - 2 }),
       }));
+      continue;
+    }
+    if (t.startsWith("@cols ")) { nextCols = t.slice(6).split(",").map(Number); continue; }
+    if (t.startsWith("@tablefont ")) { nextFont = +t.slice(11); continue; }
+    if (t.startsWith("@shot ")) {
+      flush();
+      const [h, text, hint] = t.slice(6).split("|").map((x) => x.trim());
+      out.push(...shotPlaceholder(+h, ++figNum, text, hint));
       continue;
     }
     if (t.startsWith("@img ")) {
@@ -310,11 +366,11 @@ function build(mdFile) {
     }
     if (listType) {
       flush();
-      prevList = listType;
+      if (!nested) prevList = listType;
       const text = t.replace(/^(- |\d+\. )/, "");
       out.push(new Paragraph({
         alignment: AlignmentType.JUSTIFIED,
-        numbering: { reference: listType, level: 0, instance: listCounter },
+        numbering: nested ? { reference: "subbullet", level: 0 } : { reference: listType, level: 0, instance: listCounter },
         spacing: { after: 40 },
         children: inlineRuns(text),
       }));
@@ -343,6 +399,8 @@ function build(mdFile) {
       config: [
         { reference: "bullet", levels: [{ level: 0, format: LevelFormat.BULLET, text: "–", alignment: AlignmentType.LEFT,
           style: { paragraph: { indent: { left: 709, hanging: 284 } } } }] },
+        { reference: "subbullet", levels: [{ level: 0, format: LevelFormat.BULLET, text: "•", alignment: AlignmentType.LEFT,
+          style: { paragraph: { indent: { left: 1134, hanging: 284 } } } }] },
         { reference: "number", levels: [{ level: 0, format: LevelFormat.DECIMAL, text: "%1.", alignment: AlignmentType.LEFT,
           style: { paragraph: { indent: { left: 709, hanging: 360 } } } }] },
       ],
