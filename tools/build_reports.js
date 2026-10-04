@@ -444,6 +444,8 @@ async function fixBorderOrder(buf) {
     items.sort((a, b) => order.indexOf(a.match(/<w:(\w+)/)[1]) - order.indexOf(b.match(/<w:(\w+)/)[1]));
     return `<w:${tag}>${items.join("")}</w:${tag}>`;
   });
+  // docx-js добавляет к подсветке <w:highlightCs/>, которого нет в схеме OOXML
+  xml = xml.replace(/<w:highlightCs\b[^>]*\/>/g, "");
   zip.file("word/document.xml", xml);
   return zip.generateAsync({ type: "nodebuffer", compression: "DEFLATE" });
 }
